@@ -1,8 +1,9 @@
-services:
+databases:
   # 1. PostgreSQL Database
-  - type: pgo
-    name: aarambh-db
+  - name: aarambh-db
     plan: free
+
+services:
 
   # 2. Redis for Background Tasks/Cache
   - type: redis
