@@ -6,9 +6,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.http import JsonResponse
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
+def health_check(request):
+    return JsonResponse({"status": "ok", "message": "Server is running"})
+
 urlpatterns = [
+    # Health Check (No DB access)
+    path("health/", health_check, name="health_check"),
+
     # Django Admin
     path("admin/", admin.site.urls),
 
