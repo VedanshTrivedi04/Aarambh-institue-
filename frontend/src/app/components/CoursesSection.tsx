@@ -127,44 +127,49 @@ function ClassCard({ cls, index }: { cls: CourseItem; index: number }) {
   );
 }
 
+const coursesData: CourseItem[] = [
+  {
+    id: "c1",
+    grade: "4th-8th",
+    emoji: "🎯",
+    title: "Class 4th to 8th",
+    sub: "All Subjects",
+    desc: "MP Board / CBSE / ICSE. Batch Timings: Morning 11:00 AM - 12:30 PM | Evening 5:00 PM - 6:30 PM. Fee: 800/- 1000/- (Monthly)",
+    tags: ["Weekly Tests", "Study Material", "Doubt Classes"],
+    accent: "#3B5BDB",
+    bg: "from-blue-950 to-indigo-950",
+    featured: false,
+  },
+  {
+    id: "c2",
+    grade: "9th-12th",
+    emoji: "🏆",
+    title: "Class 9th-12th",
+    sub: "All Subjects",
+    desc: "MPBOARD/CBSE/ICSE. Batch Timings: Morning 11:00AM - 1:00PM | Evening 4:00PM - 6:00 PM.",
+    tags: ["Weekly Tests", "Study Material", "Doubt Classes"],
+    accent: "#FF5C00",
+    bg: "from-orange-950 to-red-950",
+    featured: true,
+  },
+  {
+    id: "c3",
+    grade: "College",
+    emoji: "🌟",
+    title: "B.COM, M.COM, BBA, MBA, B.SC",
+    sub: "As per your domain",
+    desc: "Duration: As per Academic Year.",
+    tags: ["Weekly Tests", "Study Material", "Doubt Classes"],
+    accent: "#2F9E44",
+    bg: "from-green-950 to-emerald-950",
+    featured: false,
+  }
+];
+
 export function CoursesSection({ showViewAll, onViewAll }: { showViewAll?: boolean; onViewAll?: () => void } = {}) {
   const [activeBoard, setActiveBoard] = useState("mpboard");
-  const [courses, setCourses] = useState<CourseItem[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchCourses() {
-      try {
-        const response = await api.get('/content/courses/');
-        const payload = response.data.data !== undefined ? response.data.data : response.data;
-        const data = Array.isArray(payload) ? payload : (payload?.results || []);
-        
-        if (Array.isArray(data) && data.length > 0) {
-          const mapped = data.map((item: any, index: number) => {
-            const theme = THEMES[index % THEMES.length];
-            return {
-              id: item.id,
-              grade: item.target_exam || "",
-              emoji: theme.emoji,
-              title: item.name,
-              sub: item.short_desc,
-              desc: item.description,
-              tags: item.features || [],
-              accent: theme.accent,
-              bg: theme.bg,
-              featured: index === 1,
-            };
-          });
-          setCourses(mapped);
-        }
-      } catch (error) {
-        console.error("Failed to fetch courses", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchCourses();
-  }, []);
+  const courses = coursesData;
+  const loading = false;
 
   return (
     <section id="courses" className="py-28 bg-[#05101F] overflow-hidden">

@@ -17,22 +17,7 @@ export function ContactSection() {
   const [loading, setLoading] = useState(false);
   const [branch, setBranch] = useState<any>(null);
 
-  useEffect(() => {
-    async function fetchBranches() {
-      try {
-        const response = await api.get('/content/branches/');
-        const data = response.data.results || response.data;
-        if (data && data.length > 0) {
-          // Find head office or use first branch
-          const mainBranch = data.find((b: any) => b.is_head_office) || data[0];
-          setBranch(mainBranch);
-        }
-      } catch (error) {
-        console.error("Failed to fetch branches", error);
-      }
-    }
-    fetchBranches();
-  }, []);
+  // Removed fetchBranches
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -60,10 +45,10 @@ export function ContactSection() {
   };
 
   const contactInfo = [
-    { icon: Phone, label: "Phone", value: branch?.phone?.split(',')[0] || "+91 98765 43210", sub: branch?.phone?.split(',')[1] || "Available 9AM - 7PM", color: "#3B5BDB" },
-    { icon: Mail, label: "Email", value: branch?.email || "info@aarambhinstitute.in", sub: "Replies within 24hrs", color: "#FF5C00" },
-    { icon: MapPin, label: "Address", value: branch?.address?.split('\n')[0] || "Near Government College", sub: branch?.address?.split('\n')[1] || "Bhopal, Madhya Pradesh", color: "#2F9E44" },
-    { icon: Clock, label: "Hours", value: "Mon – Sat: 9 AM – 7 PM", sub: "Sun: 10 AM – 2 PM", color: "#7950F2" },
+    { icon: Phone, label: "Phone", value: "88397-14081", sub: "79097-14081", color: "#3B5BDB" },
+    { icon: Mail, label: "Email", value: "aarambhinstitute09@gmail.com", sub: "Replies within 24hrs", color: "#FF5C00" },
+    { icon: MapPin, label: "Address", value: "8 Shantinath Puri, Hawa Bangla, Near Sai Mandir", sub: "Indore, Madhya Pradesh", color: "#2F9E44" },
+    { icon: Clock, label: "Hours", value: "10 AM – 8 PM", sub: "Monday - Saturday", color: "#7950F2" },
   ];
 
   return (
@@ -111,12 +96,10 @@ export function ContactSection() {
             >
               <div className="text-center">
                 <MapPin className="w-7 h-7 text-blue-500 mx-auto mb-1.5" />
-                <p className="text-blue-700 font-bold text-sm">{branch?.name || "Bhopal, MP"}</p>
-                {branch?.map_url && (
-                  <a href={branch.map_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 font-bold text-xs underline mt-2 block">
-                    View on Map
-                  </a>
-                )}
+                <p className="text-blue-700 font-bold text-sm">MRMF+W8 Indore, Madhya Pradesh</p>
+                <a href="https://maps.app.goo.gl/T2m2g9b8tjVMCDqL9" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 font-bold text-xs underline mt-2 block">
+                  View on Map
+                </a>
               </div>
             </motion.div>
           </div>

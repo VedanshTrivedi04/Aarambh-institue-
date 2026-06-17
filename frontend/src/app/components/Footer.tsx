@@ -11,12 +11,10 @@ const quickLinks = [
 ];
 
 const programs = [
-  "Class 10th — MP Board",
-  "Class 10th — CBSE",
-  "Class 10th — ICSE",
-  "Class 11th — Science",
-  "Class 11th — Commerce",
-  "Class 12th — All Boards",
+  "Class 4th to 8th (All Subjects)",
+  "Class 9th-12th (All Boards)",
+  "College: B.COM, M.COM",
+  "College: BBA, MBA, B.SC",
 ];
 
 const socials = [
@@ -89,7 +87,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-white/30 text-sm leading-relaxed mb-6">
-              Empowering students since 2010. Expert coaching for Class 10th, 11th & 12th across MP Board, CBSE, and ICSE.
+              Education with values. Learning with joy. Expert coaching for Class 4th to 12th and College students.
             </p>
             <div className="flex gap-2">
               {socials.map(({ label, color }) => (
@@ -136,9 +134,9 @@ export function Footer() {
             <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-5">Get In Touch</h4>
             <ul className="space-y-4">
               {[
-                { Icon: Phone, v: "+91 98765 43210", s: "+91 87654 32109", c: "#3B5BDB" },
-                { Icon: Mail, v: "info@aarambhinstitute.in", c: "#FF5C00" },
-                { Icon: MapPin, v: "Near Govt. College", s: "Bhopal, MP 462001", c: "#2F9E44" },
+                { Icon: Phone, v: "88397-14081", s: "79097-14081", c: "#3B5BDB" },
+                { Icon: Mail, v: "aarambhinstitute09@gmail.com", c: "#FF5C00" },
+                { Icon: MapPin, v: "8 Shantinath Puri, Hawa Bangla", s: "Indore, MP", c: "#2F9E44" },
               ].map(({ Icon, v, s, c }, i) => (
                 <li key={i} className="flex gap-3">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${c}20` }}>

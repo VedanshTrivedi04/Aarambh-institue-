@@ -5,9 +5,9 @@ import { ArrowRight, MapPin } from "lucide-react";
 const boards = ["MP Board", "CBSE", "ICSE"];
 
 const stats3D = [
-  { value: "98.2%", label: "Highest Score", sub: "Ananya S. — 2024", color: "#FF5C00", delay: 0 },
-  { value: "5000+", label: "Students", sub: "Across all batches", color: "#3B5BDB", delay: 0.3 },
-  { value: "15 Yrs", label: "Experience", sub: "Since 2010", color: "#2F9E44", delay: 0.6 },
+  { value: "98.5%", label: "Highest Score", sub: "Prince — 2023", color: "#FF5C00", delay: 0 },
+  { value: "1000+", label: "Students", sub: "Across all batches", color: "#3B5BDB", delay: 0.3 },
+  { value: "15+ Yrs", label: "Experience", sub: "Since 2010", color: "#2F9E44", delay: 0.6 },
 ];
 
 const floatingTags = [
@@ -258,7 +258,7 @@ export function HeroSection() {
                 className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md"
               >
                 <MapPin className="w-3.5 h-3.5 text-orange-400" />
-                <span className="text-white/60 text-xs font-medium">Bhopal, Madhya Pradesh</span>
+                <span className="text-white/60 text-xs font-medium">Indore, Madhya Pradesh</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-green-400 text-xs font-semibold">Admissions Open</span>
               </motion.div>
@@ -363,7 +363,7 @@ export function HeroSection() {
                   ))}
                 </div>
                 <div className="text-white/40 text-sm">
-                  <span className="text-white/70 font-semibold">500+</span> students enrolled this year
+                  <span className="text-white/70 font-semibold">1000+</span> students enrolled this year
                 </div>
               </motion.div>
             </div>

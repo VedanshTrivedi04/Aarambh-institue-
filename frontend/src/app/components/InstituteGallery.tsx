@@ -123,7 +123,7 @@ export function InstituteGallery() {
               <img src={selected.url} alt={selected.label} className="w-full object-contain max-h-[80vh]" />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                 <p className="text-white font-bold">{selected.label}</p>
-                <p className="text-white/40 text-sm">Aarambh Institute, Bhopal</p>
+                <p className="text-white/40 text-sm">Aarambh Institute, Indore</p>
               </div>
               <button
                 onClick={() => setSelected(null)}

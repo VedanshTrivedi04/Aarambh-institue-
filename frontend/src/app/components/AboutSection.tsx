@@ -7,12 +7,12 @@ const IMG_CAMPUS = "https://images.unsplash.com/photo-1615406020658-6c4b805f1f30
 const IMG_STUDENTS = "https://images.unsplash.com/photo-1692269725911-87697c558be1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxzdHVkZW50cyUyMHN0dWR5aW5nJTIwY2xhc3Nyb29tJTIwZWR1Y2F0aW9uJTIwSW5kaWF8ZW58MXx8fHwxNzgwNzMwMjg1fDA&ixlib=rb-4.1.0&q=80&w=1080";
 
 const highlights = [
-  "15+ years of academic excellence in Bhopal",
-  "500+ students enrolled each academic year",
-  "Expert faculty — M.Sc., Ph.D. qualified",
-  "Batch sizes capped at 15–20 for real attention",
-  "Weekly tests, mock boards & analysis sessions",
-  "Parent–teacher meetings every month",
+  "15+ years of experience in guiding students",
+  "1000+ students enrolled in our journey",
+  "98% Board Result Rate across classes",
+  "12+ Expert Faculty members",
+  "Personalised attention with small batch sizes",
+  "Weekly tests, study material, doubt classes",
 ];
 
 const pillars = [
@@ -85,7 +85,7 @@ function TiltImage() {
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(5,16,31,0.7) 0%, transparent 60%)" }} />
           <div className="absolute bottom-5 left-5 text-white">
             <div className="font-bold text-sm mb-0.5">Our Campus</div>
-            <div className="text-white/50 text-xs">Bhopal, Madhya Pradesh</div>
+            <div className="text-white/50 text-xs">Indore, Madhya Pradesh</div>
           </div>
         </div>
 
@@ -139,8 +139,8 @@ export function AboutSection() {
           <div>
             <SectionTitle
               label="About Aarambh"
-              title={`Shaping\nFutures\nSince 2010`}
-              subtitle="Founded with a simple belief — every student can excel. We've grown to become one of Madhya Pradesh's most trusted coaching institutes."
+              title={`Shaping\nFutures\nSince 2015`}
+              subtitle="At Aarambh Institute we believe that the right guidance at the right time can transform a student's academic journey. Our experienced faculty, well-researched curriculum, and student-centric approach make learning both effective and engaging. As a parent myself, I know what you want: safety, learning, and happiness for your child. At Aarambh Institute you will get all three. Let's grow together. — Shobhna Vyas (Founder)"
             />
 
             <div className="space-y-2.5 mb-8">

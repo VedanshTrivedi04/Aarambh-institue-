@@ -138,53 +138,19 @@ function FacultyCard({ teacher, index }: { teacher: TeacherItem; index: number }
   );
 }
 
+const facultyData: TeacherItem[] = [
+  { name: "Mr. Pankaj Dubey", subject: "Biology", classes: "10th · 11th · 12th", exp: "30 Years", qualification: "Subject Expert", boards: ["MP Board", "CBSE"], achievement: "Helping students excel", img: FALLBACK_IMGS[0], accent: ACCENTS[0], rating: 4.9 },
+  { name: "Mr. Jitendra Shindey", subject: "Commerce", classes: "10th · 11th · 12th", exp: "30 Years", qualification: "Subject Expert", boards: ["MP Board", "CBSE"], achievement: "Helping students excel", img: FALLBACK_IMGS[1], accent: ACCENTS[1], rating: 4.8 },
+  { name: "Mrs. Shobhna Vyas", subject: "Maths, Science", classes: "10th · 11th · 12th", exp: "20 Years", qualification: "Subject Expert", boards: ["MP Board", "CBSE"], achievement: "Helping students excel", img: FALLBACK_IMGS[2], accent: ACCENTS[2], rating: 4.9 },
+  { name: "Mr. Vishal Rathore", subject: "Maths", classes: "10th · 11th · 12th", exp: "15 Years", qualification: "Subject Expert", boards: ["MP Board", "CBSE"], achievement: "Helping students excel", img: FALLBACK_IMGS[3], accent: ACCENTS[3], rating: 4.8 },
+  { name: "Mrs. Anita Holkar", subject: "Physics", classes: "10th · 11th · 12th", exp: "15 Years", qualification: "Subject Expert", boards: ["MP Board", "CBSE"], achievement: "Helping students excel", img: FALLBACK_IMGS[0], accent: ACCENTS[4], rating: 4.8 },
+  { name: "Mr. Ansh Sir", subject: "Chemistry, Biology, Physics", classes: "NEET + JEE Mains", exp: "5 Years", qualification: "Subject Expert", boards: ["CBSE", "ICSE"], achievement: "Helping students excel", img: FALLBACK_IMGS[1], accent: ACCENTS[5], rating: 4.7 },
+  { name: "Miss Darshna Panchal", subject: "Business Studies, Economics", classes: "11th · 12th", exp: "2 Years", qualification: "Subject Expert", boards: ["MP Board", "CBSE"], achievement: "Institutional management expertise", img: FALLBACK_IMGS[2], accent: ACCENTS[0], rating: 4.6 }
+];
+
 export function FacultySection({ showViewAll, onViewAll }: { showViewAll?: boolean; onViewAll?: () => void } = {}) {
-  const [faculty, setFaculty] = useState<TeacherItem[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchFaculty() {
-      try {
-        const res = await api.get('/users/teachers/public/');
-        const payload = res.data.data !== undefined ? res.data.data : res.data;
-        const data = Array.isArray(payload) ? payload : (payload?.results || []);
-
-        if (Array.isArray(data) && data.length > 0) {
-          const mapped: TeacherItem[] = data.map((teacher: any, index: number) => {
-            const profile = teacher.teacher_profile;
-            const accent = ACCENTS[index % ACCENTS.length];
-            const img = teacher.profile_photo
-              ? teacher.profile_photo
-              : FALLBACK_IMGS[index % FALLBACK_IMGS.length];
-
-            const boards = profile?.specialization
-              ? profile.specialization.split(',').slice(0, 3).map((s: string) => s.trim())
-              : ["JEE", "NEET"];
-
-            return {
-              name: `${teacher.first_name} ${teacher.last_name}`,
-              subject: profile?.specialization?.split(',')[0]?.trim() || "Subject Expert",
-              classes: "10th · 11th · 12th",
-              exp: profile?.experience_years ? `${profile.experience_years} Years` : "5+ Years",
-              qualification: profile?.qualification || "M.Sc.",
-              boards,
-              achievement: profile?.achievement || "Helping students excel",
-              img,
-              accent,
-              rating: parseFloat(profile?.rating) || 4.8,
-            };
-          });
-
-          setFaculty(mapped);
-        }
-      } catch (error) {
-        console.error("Failed to fetch faculty:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchFaculty();
-  }, []);
+  const faculty = facultyData;
+  const loading = false;
 
   const displayCount = faculty.length;
 

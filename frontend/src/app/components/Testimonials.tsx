@@ -16,39 +16,19 @@ interface Testimonial {
 
 const COLORS = ["#3B5BDB", "#2F9E44", "#7950F2", "#FF5C00", "#E64980"];
 
+const testimonialsData: Testimonial[] = [
+  { id: "ts1", name: "Dhruvika", role: "Parent (6th)", text: "Aarambh Institute ke teachers bahut dedicated hain. Mere bachche ke marks aur confidence dono mein kaafi improvement hua hai. Hum institute ki teaching aur guidance se bahut santusht hain.", rating: 5, letter: "D", color: COLORS[0] },
+  { id: "ts2", name: "Yashika", role: "Student (7th)", text: "Aarambh Institute mein padhai ka environment bahut positive hai. Teachers har topic ko simple aur interesting tareeke se samjhate hain, jis se padhai aasan lagti hai.", rating: 5, letter: "Y", color: COLORS[1] },
+  { id: "ts3", name: "Vaishnavi Patel", role: "Student (10th)", text: "Regular tests, personal attention aur progress updates ki wajah se humein bachche ki performance ka poora pata rehta hai. Aarambh Institute sach mein students ke future ko lekar serious hai.", rating: 5, letter: "V", color: COLORS[2] },
+  { id: "ts4", name: "Rishabh Bhargav", role: "Student (11th)", text: "Yahan mujhe padhai ke saath motivation bhi milta hai. Teachers hamesha support karte hain aur doubts ko turant solve karte hain.", rating: 5, letter: "R", color: COLORS[3] },
+  { id: "ts5", name: "Gourav Sarothiya", role: "Student (10th)", text: "Best guidance for academic success!", rating: 5, letter: "G", color: COLORS[4] },
+];
+
 export function Testimonials() {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const testimonials = testimonialsData;
   const [current, setCurrent] = useState(0);
   const [dir, setDir] = useState(1);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchTestimonials() {
-      try {
-        const response = await api.get('/content/testimonials/');
-        const payload = response.data.data !== undefined ? response.data.data : response.data;
-        const data = Array.isArray(payload) ? payload : (payload?.results || []);
-
-        if (Array.isArray(data) && data.length > 0) {
-          const mapped = data.map((t: any, index: number) => ({
-            id: t.id,
-            name: t.student_name,
-            role: `${t.course_name} (${t.year})`,
-            text: t.content,
-            rating: t.rating || 5,
-            letter: t.student_name.charAt(0).toUpperCase(),
-            color: COLORS[index % COLORS.length],
-          }));
-          setTestimonials(mapped);
-        }
-      } catch (error) {
-        console.error("Failed to fetch testimonials", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchTestimonials();
-  }, []);
+  const loading = false;
 
   useEffect(() => {
     if (testimonials.length <= 1) return;

@@ -40,9 +40,9 @@ function useCounter(target: number, duration = 2000, enabled = false) {
 }
 
 const stats = [
-  { icon: Users, label: "Students Coached", value: 5000, suffix: "+", color: "#3B5BDB", glow: "rgba(59,91,219,0.3)" },
+  { icon: Users, label: "Students Passed", value: 2000, suffix: "+", color: "#3B5BDB", glow: "rgba(59,91,219,0.3)" },
   { icon: Trophy, label: "Board Toppers", value: 150, suffix: "+", color: "#FF5C00", glow: "rgba(255,92,0,0.3)" },
-  { icon: TrendingUp, label: "Score Improvement", value: 40, suffix: "%", color: "#2F9E44", glow: "rgba(47,158,68,0.3)" },
+  { icon: TrendingUp, label: "Highest Board %", value: 98, suffix: ".5%", color: "#2F9E44", glow: "rgba(47,158,68,0.3)" },
   { icon: Zap, label: "Years of Excellence", value: 15, suffix: "+", color: "#F59F00", glow: "rgba(245,159,0,0.3)" },
 ];
 
@@ -70,40 +70,25 @@ function StatBlock({ s, enabled }: { s: (typeof stats)[0]; enabled: boolean }) {
   );
 }
 
+const toppersData: Topper[] = [
+  { id: "t1", name: "Prince", score: "94%", board: "MP Board", classStr: "12th", rank: "Ranked", yr: "2023", letter: "P", c: COLORS[0] },
+  { id: "t2", name: "Rohit Garg", score: "91%", board: "MP Board", classStr: "10th", rank: "Ranked", yr: "2024", letter: "R", c: COLORS[1] },
+  { id: "t3", name: "Payal Sharma", score: "89%", board: "MP Board", classStr: "10th", rank: "Ranked", yr: "2024", letter: "P", c: COLORS[2] },
+  { id: "t4", name: "Neha Yadav", score: "89%", board: "MP Board", classStr: "10th", rank: "Ranked", yr: "2023", letter: "N", c: COLORS[3] },
+  { id: "t5", name: "Nupur", score: "89%", board: "CBSE", classStr: "10th", rank: "Ranked", yr: "2023", letter: "N", c: COLORS[4] },
+  { id: "t6", name: "Monika", score: "85%", board: "CBSE", classStr: "12th", rank: "Ranked", yr: "2024", letter: "M", c: COLORS[5] },
+  { id: "t7", name: "Ritika Sarothiya", score: "85%", board: "CBSE", classStr: "10th", rank: "Ranked", yr: "2025", letter: "R", c: COLORS[0] },
+  { id: "t8", name: "Nishtha Jain", score: "83%", board: "MP Board", classStr: "10th", rank: "Ranked", yr: "2025", letter: "N", c: COLORS[1] },
+  { id: "t9", name: "Shrishti Yadav", score: "Top", board: "MP Board", classStr: "9th", rank: "Ranked", yr: "2025", letter: "S", c: COLORS[2] },
+  { id: "t10", name: "Vanshika Yadav", score: "Top", board: "MP Board", classStr: "7th", rank: "Ranked", yr: "2025", letter: "V", c: COLORS[3] },
+  { id: "t11", name: "Atharva Choudhary", score: "Top", board: "CBSE", classStr: "8th", rank: "Ranked", yr: "2025", letter: "A", c: COLORS[4] },
+];
+
 export function AchievementsSection({ showViewAll, onViewAll }: { showViewAll?: boolean; onViewAll?: () => void } = {}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [toppers, setToppers] = useState<Topper[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchToppers() {
-      try {
-        const response = await api.get('/content/success-stories/');
-        const payload = response.data.data !== undefined ? response.data.data : response.data;
-        const data = Array.isArray(payload) ? payload : (payload?.results || []);
-        
-        const mapped = data.map((item: any, index: number) => ({
-          id: item.id,
-          name: item.student_name,
-          score: item.rank_or_score,
-          board: item.exam,
-          classStr: item.year, // using year as a secondary string if class is not provided
-          rank: "Ranked", 
-          yr: item.year,
-          letter: item.student_name.charAt(0).toUpperCase(),
-          c: COLORS[index % COLORS.length]
-        }));
-        
-        setToppers(mapped.slice(0, 6)); // show top 6
-      } catch (error) {
-        console.error("Failed to fetch success stories", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchToppers();
-  }, []);
+  const toppers = toppersData.slice(0, 6);
+  const loading = false;
 
   return (
     <section id="results" className="py-28 bg-[#05101F] overflow-hidden">

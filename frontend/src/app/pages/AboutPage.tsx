@@ -19,7 +19,7 @@ const IMG_LIBRARY = "https://images.unsplash.com/photo-1766506075730-f1d871df530
 
 /* ─── Data ─── */
 const timeline = [
-  { year: "2010", title: "The Beginning", desc: "Aarambh Institute was founded by Mr. Sunil Verma with just 3 teachers and 40 students in a small rented space in Bhopal." },
+  { year: "1995", title: "The Beginning", desc: "Aarambh Institute was founded by Mr. Pankaj Dubey with just 3 teachers and 40 students in a small rented space in Indore." },
   { year: "2013", title: "First Big Result", desc: "Our students achieved the top 3 ranks in the MP Board Class 10 district examinations — putting Aarambh on the map." },
   { year: "2015", title: "New Campus", desc: "Moved to a purpose-built facility with modern classrooms, a science lab, and a reading library accommodating 200+ students." },
   { year: "2018", title: "CBSE & ICSE Added", desc: "Expanded coaching beyond MP Board to include CBSE and ICSE curricula with dedicated subject specialists for each board." },
@@ -61,7 +61,7 @@ const stats = [
 const achievements = [
   { title: "Best Coaching Institute", org: "MP Education Board", year: "2023", icon: "🏆" },
   { title: "Excellence in Science Education", org: "CBSE Regional Award", year: "2022", icon: "🔬" },
-  { title: "Top Results — Commerce Stream", org: "Bhopal District", year: "2023", icon: "📊" },
+  { title: "Top Results — Commerce Stream", org: "Indore District", year: "2023", icon: "📊" },
   { title: "Parent Trust Award", org: "Education Today Survey", year: "2024", icon: "❤️" },
   { title: "100% Pass Rate — ICSE Batch", org: "Internal Milestone", year: "2024", icon: "✅" },
   { title: "Digital Innovation in Teaching", org: "EdTech Forum MP", year: "2023", icon: "💡" },
@@ -211,7 +211,7 @@ export function AboutPage() {
                 className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/10 bg-white/5"
               >
                 <MapPin className="w-3.5 h-3.5 text-orange-400" />
-                <span className="text-white/50 text-xs font-medium">Bhopal, Madhya Pradesh · Est. 2010</span>
+                <span className="text-white/50 text-xs font-medium">Indore, Madhya Pradesh · Est. 1995</span>
               </motion.div>
 
               <motion.h1
@@ -332,7 +332,7 @@ export function AboutPage() {
               <Heading>Started Small,<br />Dreamed Big</Heading>
               <div className="space-y-4 text-gray-500 leading-relaxed">
                 <p>
-                  In 2010, a former government school teacher named <span className="font-semibold text-gray-900">Mr. Sunil Verma</span> quit his secure job to open a small coaching room near Government College, Bhopal. He had three teachers, forty students, and an unshakeable belief — that every child, given the right guidance, can excel.
+                  In 1995, a visionary teacher named <span className="font-semibold text-gray-900">Mr. Pankaj Dubey</span> started a small coaching room in Indore. He had an unshakeable belief — that every child, given the right guidance, can excel.
                 </p>
                 <p>
                   The first batch produced the district's top three ranks in the MP Board Class 10 examination. Word spread. Parents trusted, students came, and within three years, Aarambh had outgrown its first home.
@@ -595,7 +595,7 @@ export function AboutPage() {
               <SectionLabel text="Facilities" light />
               <Heading light>Built for<br />Learning</Heading>
               <p className="text-white/40 leading-relaxed mb-10">
-                Our campus in Bhopal is designed to create the best possible environment — every classroom, lab, and corner is purposeful.
+                Our campus in Indore is designed to create the best possible environment — every classroom, lab, and corner is purposeful.
               </p>
               <div className="grid sm:grid-cols-2 gap-3">
                 {facilities.map((f, i) => (
@@ -678,7 +678,7 @@ export function AboutPage() {
             </a>
             <span className="text-gray-200">|</span>
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" /> Bhopal, MP
+              <MapPin className="w-4 h-4" /> Indore, MP
             </span>
           </div>
         </div>
