@@ -19,8 +19,8 @@ const PageHero = ({ title, subtitle, bg }: { title: string; subtitle: string; bg
 );
 
 const boards = [
-  { id: "mpboard", label: "MP Board", emoji: "🟠", color: "from-orange-500 to-red-500", light: "bg-orange-50 border-orange-200 text-orange-700" },
-  { id: "cbse", label: "CBSE", emoji: "🔵", color: "from-blue-500 to-indigo-600", light: "bg-blue-50 border-blue-200 text-blue-700" },
+  { id: "mpboard", label: "MP Board", emoji: "🟠", color: "from-red-600 to-red-500", light: "bg-red-50 border-red-200 text-red-800" },
+  { id: "cbse", label: "CBSE", emoji: "🔵", color: "from-slate-500 to-red-700", light: "bg-slate-50 border-slate-200 text-blue-700" },
   { id: "icse", label: "ICSE", emoji: "🟢", color: "from-green-500 to-emerald-600", light: "bg-green-50 border-green-200 text-green-700" },
 ];
 

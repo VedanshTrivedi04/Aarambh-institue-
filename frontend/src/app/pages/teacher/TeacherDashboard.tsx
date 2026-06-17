@@ -5,8 +5,8 @@ import { Link } from "react-router";
 import api from "../../../lib/api";
 
 const quickActions = [
-  { label: "Upload New Notes", icon: Upload, path: "/teacher/notes", gradient: "from-orange-500 to-red-600" },
-  { label: "New Announcement", icon: Megaphone, path: "/teacher/announcements", gradient: "from-blue-500 to-blue-700" },
+  { label: "Upload New Notes", icon: Upload, path: "/teacher/notes", gradient: "from-red-600 to-red-600" },
+  { label: "New Announcement", icon: Megaphone, path: "/teacher/announcements", gradient: "from-slate-500 to-blue-700" },
   { label: "View My Students", icon: BarChart, path: "/teacher/students", gradient: "from-green-500 to-green-700" },
 ];
 
@@ -121,7 +121,7 @@ export function TeacherDashboard() {
             {batches.map((batch) => (
               <div
                 key={batch.id}
-                className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-orange-500/30 transition-all"
+                className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-red-600/30 transition-all"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
@@ -180,7 +180,7 @@ export function TeacherDashboard() {
                   >
                     <td className="py-3 px-4 text-white">{note.title}</td>
                     <td className="py-3 px-4">
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/20">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-600/15 text-red-400 border border-red-600/20">
                         {note.subject?.name || note.subject || "N/A"}
                       </span>
                     </td>

@@ -58,14 +58,14 @@ export function StudentLayout() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 flex items-center justify-center">
-        <div className="text-orange-500 font-bold text-xl animate-pulse">Loading...</div>
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 flex items-center justify-center">
+        <div className="text-red-600 font-bold text-xl animate-pulse">Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50">
       <aside
         className={`fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 z-50 transform transition-transform duration-300 shadow-lg ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -73,7 +73,7 @@ export function StudentLayout() {
       >
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -96,7 +96,7 @@ export function StudentLayout() {
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all ${
                   isActive
-                    ? "bg-orange-100 border-l-2 border-orange-500 text-orange-600"
+                    ? "bg-red-100 border-l-2 border-red-600 text-red-700"
                     : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                 }`}
               >
@@ -109,12 +109,12 @@ export function StudentLayout() {
 
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold uppercase">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white font-bold uppercase">
               {userInitials}
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-gray-900 text-sm font-semibold truncate">{userName}</div>
-              <div className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-600 inline-block truncate max-w-full">
+              <div className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-100 text-slate-600 inline-block truncate max-w-full">
                 {user?.email || "Student"}
               </div>
             </div>
@@ -153,7 +153,7 @@ export function StudentLayout() {
               <Bell className="w-5 h-5" />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-sm uppercase">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white font-bold text-sm uppercase">
               {userInitials}
             </div>
           </div>

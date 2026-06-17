@@ -55,7 +55,7 @@ export function AdminContent() {
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-2 text-sm font-semibold transition-all whitespace-nowrap ${
                 activeTab === tab
-                  ? "text-orange-600 border-b-2 border-orange-500"
+                  ? "text-red-700 border-b-2 border-red-600"
                   : "text-gray-500 hover:text-gray-900 border-b-2 border-transparent hover:border-gray-300"
               }`}
             >
@@ -73,7 +73,7 @@ export function AdminContent() {
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold text-gray-900">Manage {activeTab}</h3>
               <button
-                className="px-4 py-2 rounded-xl font-semibold text-white text-sm shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all"
+                className="px-4 py-2 rounded-xl font-semibold text-white text-sm shadow-md shadow-red-600/20 hover:shadow-red-600/30 transition-all"
                 style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
               >
                 + Add New
@@ -89,13 +89,13 @@ export function AdminContent() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {items.map((item) => (
-                  <div key={item.id} className="p-4 bg-white border border-gray-200 rounded-xl hover:border-orange-300 transition-all shadow-sm">
+                  <div key={item.id} className="p-4 bg-white border border-gray-200 rounded-xl hover:border-red-300 transition-all shadow-sm">
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="text-gray-900 font-bold text-lg">
                         {activeTab === "Courses" ? item.name || item.title : item.student_name || item.name}
                       </h4>
                       <div className="flex gap-2">
-                        <button className="p-1.5 text-gray-400 hover:text-orange-500 transition-colors">
+                        <button className="p-1.5 text-gray-400 hover:text-red-600 transition-colors">
                           <Edit2 className="w-4 h-4" />
                         </button>
                         <button className="p-1.5 text-gray-400 hover:text-red-500 transition-colors">

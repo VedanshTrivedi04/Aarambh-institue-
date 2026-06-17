@@ -78,7 +78,7 @@ export function AdminQueries() {
               placeholder="Search queries..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 text-sm shadow-sm transition-all focus:ring-2 focus:ring-orange-500/20"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-red-600 text-sm shadow-sm transition-all focus:ring-2 focus:ring-red-600/20"
             />
           </div>
 
@@ -89,7 +89,7 @@ export function AdminQueries() {
                 onClick={() => setFilterTab(tab)}
                 className={`px-3 py-1.5 rounded-lg transition-all font-medium ${
                   filterTab === tab
-                    ? "bg-orange-50 text-orange-600 border border-orange-200 shadow-sm"
+                    ? "bg-red-50 text-red-700 border border-red-200 shadow-sm"
                     : "bg-gray-50 text-gray-600 hover:text-gray-900 hover:bg-gray-100 border border-transparent"
                 }`}
               >
@@ -113,12 +113,12 @@ export function AdminQueries() {
                     onClick={() => setSelectedQuery(query)}
                     className={`w-full text-left p-3 rounded-xl transition-all ${
                       selectedQuery?.id === query.id
-                        ? "bg-orange-50/50 border border-orange-200 shadow-sm"
+                        ? "bg-red-50/50 border border-red-200 shadow-sm"
                         : "bg-white hover:bg-gray-50 border border-gray-100"
-                    } ${query.status === "new" ? "border-l-4 border-l-orange-500" : ""}`}
+                    } ${query.status === "new" ? "border-l-4 border-l-red-600" : ""}`}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-xs font-bold shadow-sm">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white text-xs font-bold shadow-sm">
                         {initials}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -135,9 +135,9 @@ export function AdminQueries() {
                     <div className="mt-2">
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold capitalize ${
                         query.status === "new"
-                          ? "bg-orange-50 text-orange-600 border border-orange-200"
+                          ? "bg-red-50 text-red-700 border border-red-200"
                           : query.status === "contacted"
-                          ? "bg-blue-50 text-blue-600 border border-blue-200"
+                          ? "bg-slate-50 text-slate-600 border border-slate-200"
                           : "bg-green-50 text-green-600 border border-green-200"
                       }`}>
                         {query.status.replace('_', ' ')}
@@ -156,7 +156,7 @@ export function AdminQueries() {
             <>
               <div className="mb-6">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-xl uppercase shadow-sm">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white font-bold text-xl uppercase shadow-sm">
                     {((selectedQuery.student_name || selectedQuery.name || 'Q')[0]).toUpperCase()}
                   </div>
                   <div>
@@ -194,7 +194,7 @@ export function AdminQueries() {
                     onClick={() => handleStatusUpdate(selectedQuery.id, 'contacted')}
                     className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:text-gray-900 text-sm font-bold border border-gray-200 hover:bg-gray-50 transition-all shadow-sm"
                   >
-                    <Mail className="w-4 h-4 text-blue-500" />
+                    <Mail className="w-4 h-4 text-slate-500" />
                     Mark as Contacted
                   </button>
                 )}
@@ -207,7 +207,7 @@ export function AdminQueries() {
                   value={replyText}
                   onChange={(e) => setReplyText(e.target.value)}
                   placeholder="Type your reply here... (Note: this is a UI demo, email integration needed on backend)"
-                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all shadow-sm resize-none"
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all shadow-sm resize-none"
                 ></textarea>
                 <div className="flex justify-end mt-3">
                   <button
@@ -215,7 +215,7 @@ export function AdminQueries() {
                       alert('Reply functionality would be connected to email backend here.');
                       setReplyText('');
                     }}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-red-600/20 hover:shadow-red-600/30 transition-all"
                     style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
                   >
                     <Send className="w-4 h-4" />

@@ -81,7 +81,7 @@ export function StudentDashboard() {
   const getPriorityStyle = (priority: string) => {
     if (priority === "urgent") return "bg-red-500/10 border-l-4 border-red-500";
     if (priority === "high") return "bg-amber-500/10 border-l-4 border-amber-500";
-    return "bg-white/[0.03] border-l-4 border-orange-500/30";
+    return "bg-white/[0.03] border-l-4 border-red-600/30";
   };
 
   const getPriorityBadgeStyle = (priority: string) => {
@@ -100,7 +100,7 @@ export function StudentDashboard() {
       className="space-y-6"
     >
       {/* Welcome Hero */}
-      <div className="bg-white/[0.04] backdrop-blur-xl border-l-4 border-orange-500 border-r border-t border-b border-white/10 rounded-2xl p-6">
+      <div className="bg-white/[0.04] backdrop-blur-xl border-l-4 border-red-600 border-r border-t border-b border-white/10 rounded-2xl p-6">
         <h2 className="text-2xl font-black text-white mb-2">
           Welcome back, {firstName}! 🎯
         </h2>
@@ -113,14 +113,14 @@ export function StudentDashboard() {
         <div className="flex gap-3">
           <Link
             to="/student/notes"
-            className="text-orange-400 hover:text-orange-300 transition-colors text-sm font-semibold flex items-center gap-1"
+            className="text-red-400 hover:text-red-300 transition-colors text-sm font-semibold flex items-center gap-1"
           >
             View Notes <ArrowRight className="w-4 h-4" />
           </Link>
           <span className="text-white/30">|</span>
           <Link
             to="/student/performance"
-            className="text-orange-400 hover:text-orange-300 transition-colors text-sm font-semibold flex items-center gap-1"
+            className="text-red-400 hover:text-red-300 transition-colors text-sm font-semibold flex items-center gap-1"
           >
             My Performance <ArrowRight className="w-4 h-4" />
           </Link>
@@ -152,10 +152,10 @@ export function StudentDashboard() {
       {/* Announcements */}
       <div className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6">
         <div className="flex items-center gap-2 mb-4">
-          <Bell className="w-5 h-5 text-orange-400" />
+          <Bell className="w-5 h-5 text-red-400" />
           <h2 className="text-xl font-bold text-white">Announcements</h2>
           {announcements.length > 0 && (
-            <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/20">
+            <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-red-600/15 text-red-400 border border-red-600/20">
               {announcements.length}
             </span>
           )}
@@ -187,7 +187,7 @@ export function StudentDashboard() {
                   </div>
                   <button
                     onClick={() => handleMarkRead(ann.id)}
-                    className="text-orange-400 hover:text-orange-300 text-xs font-semibold"
+                    className="text-red-400 hover:text-red-300 text-xs font-semibold"
                   >
                     Mark as Read
                   </button>
@@ -213,7 +213,7 @@ export function StudentDashboard() {
                 className="flex items-center justify-between p-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <FileText className="w-5 h-5 text-orange-400 shrink-0" />
+                  <FileText className="w-5 h-5 text-red-400 shrink-0" />
                   <div>
                     <div className="text-white font-medium">{note.title}</div>
                     <div className="text-white/40 text-xs">
@@ -225,7 +225,7 @@ export function StudentDashboard() {
                   href={note.file}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors shrink-0"
+                  className="px-4 py-2 rounded-lg bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-colors shrink-0"
                 >
                   Download
                 </a>

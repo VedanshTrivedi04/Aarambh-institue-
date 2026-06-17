@@ -92,12 +92,12 @@ export function StudentSubjects() {
             <h3 className="text-white font-bold text-lg mb-2">Your Batch: {batchName}</h3>
             <div className="flex flex-wrap gap-3 mb-3">
               {batch?.target_exam && (
-                <span className="px-3 py-1.5 rounded-full text-sm font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/20">
+                <span className="px-3 py-1.5 rounded-full text-sm font-semibold bg-red-600/15 text-red-400 border border-red-600/20">
                   Target: {batch.target_exam.toUpperCase()}
                 </span>
               )}
               {batch?.class_grade && (
-                <span className="px-3 py-1.5 rounded-full text-sm font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20">
+                <span className="px-3 py-1.5 rounded-full text-sm font-semibold bg-slate-500/15 text-blue-400 border border-slate-500/20">
                   Class {batch.class_grade}
                 </span>
               )}
@@ -142,16 +142,16 @@ export function StudentSubjects() {
                 <motion.div
                   key={teacher.id}
                   whileHover={{ y: -4 }}
-                  className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-orange-500/30 transition-all"
+                  className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-red-600/30 transition-all"
                 >
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-2xl mb-3">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white font-bold text-2xl mb-3">
                       {initials}
                     </div>
                     <h3 className="text-white font-bold text-lg mb-1">
                       {teacher.first_name} {teacher.last_name}
                     </h3>
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/20">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-600/15 text-red-400 border border-red-600/20">
                       Teacher
                     </span>
                   </div>
@@ -161,7 +161,7 @@ export function StudentSubjects() {
                   <div className="flex gap-2">
                     <Link
                       to="/student/chat"
-                      className="flex-1 px-3 py-2 rounded-lg bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all flex items-center justify-center gap-2"
+                      className="flex-1 px-3 py-2 rounded-lg bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-all flex items-center justify-center gap-2"
                     >
                       <MessageCircle className="w-4 h-4" />
                       Message
@@ -184,7 +184,7 @@ export function StudentSubjects() {
       {/* Upcoming Tests */}
       <div className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6">
         <div className="flex items-center gap-2 mb-4">
-          <BookOpen className="w-5 h-5 text-orange-400" />
+          <BookOpen className="w-5 h-5 text-red-400" />
           <h2 className="text-xl font-bold text-white">Upcoming Tests</h2>
         </div>
         {isLoading ? (
@@ -210,7 +210,7 @@ export function StudentSubjects() {
                     </td>
                     <td className="py-3 px-4 text-white font-medium">{test.title}</td>
                     <td className="py-3 px-4">
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/20">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-600/15 text-red-400 border border-red-600/20">
                         {test.subject?.name || test.subject || "N/A"}
                       </span>
                     </td>

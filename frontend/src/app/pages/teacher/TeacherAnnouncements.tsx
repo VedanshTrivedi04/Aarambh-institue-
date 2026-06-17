@@ -148,14 +148,14 @@ export function TeacherAnnouncements() {
               placeholder="Announcement Title *"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
-              className="w-full px-4 py-3 bg-white/[0.05] border border-white/15 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-orange-500/50"
+              className="w-full px-4 py-3 bg-white/[0.05] border border-white/15 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-red-600/50"
             />
             <textarea
               rows={4}
               placeholder="Message *"
               value={form.content}
               onChange={(e) => setForm({ ...form, content: e.target.value })}
-              className="w-full px-4 py-3 bg-white/[0.05] border border-white/15 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-orange-500/50 resize-none"
+              className="w-full px-4 py-3 bg-white/[0.05] border border-white/15 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-red-600/50 resize-none"
             ></textarea>
             <div className="grid grid-cols-2 gap-4">
               <select
@@ -167,7 +167,7 @@ export function TeacherAnnouncements() {
                     setForm({ ...form, is_global: false, target_batch: e.target.value });
                   }
                 }}
-                className="px-4 py-3 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-orange-500/50 appearance-none"
+                className="px-4 py-3 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-red-600/50 appearance-none"
                 style={{ background: "rgba(255,255,255,0.05)" }}
               >
                 <option value="" className="bg-gray-900">Select Batch</option>
@@ -179,7 +179,7 @@ export function TeacherAnnouncements() {
               <select
                 value={form.priority}
                 onChange={(e) => setForm({ ...form, priority: e.target.value })}
-                className="px-4 py-3 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-orange-500/50 appearance-none"
+                className="px-4 py-3 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-red-600/50 appearance-none"
                 style={{ background: "rgba(255,255,255,0.05)" }}
               >
                 <option value="low" className="bg-gray-900">Low Priority</option>
@@ -220,7 +220,7 @@ export function TeacherAnnouncements() {
           announcements.map((announcement) => (
             <div
               key={announcement.id}
-              className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-orange-500/30 transition-all"
+              className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-red-600/30 transition-all"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -251,7 +251,7 @@ export function TeacherAnnouncements() {
                   {announcement.target_batches?.map((b: any) => (
                     <span
                       key={b.id || b}
-                      className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20"
+                      className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-500/15 text-blue-400 border border-slate-500/20"
                     >
                       {b.name || "Batch"}
                     </span>

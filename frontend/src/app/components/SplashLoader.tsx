@@ -5,12 +5,12 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
   const [phase, setPhase] = useState<"drawing" | "holding" | "fading">("drawing");
 
   useEffect(() => {
-    // Phase 1: Drawing animation plays for 7 seconds
-    const t1 = setTimeout(() => setPhase("holding"), 7000);
-    // Phase 2: Hold for 1.5 seconds
-    const t2 = setTimeout(() => setPhase("fading"), 8500);
-    // Phase 3: Fade out everything, wait 1.5s for blur to lift
-    const t3 = setTimeout(() => onDone(), 10000);
+    // Phase 1: Drawing animation plays for 1 second
+    const t1 = setTimeout(() => setPhase("holding"), 1000);
+    // Phase 2: Hold for 0.5 seconds
+    const t2 = setTimeout(() => setPhase("fading"), 1500);
+    // Phase 3: Fade out everything, wait 0.5s for blur to lift
+    const t3 = setTimeout(() => onDone(), 2000);
     
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [onDone]);
@@ -22,8 +22,8 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { type: "spring", duration: 3.5, bounce: 0 },
-        opacity: { duration: 0.2 }
+        pathLength: { type: "spring", duration: 0.8, bounce: 0 },
+        opacity: { duration: 0.1 }
       }
     }
   };
@@ -36,7 +36,7 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           {/* ── Blurred backdrop (light frosted glass) ── */}
           <div
@@ -78,7 +78,7 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
                   variants={drawLine} 
                   strokeWidth="3"
                   d="M100,100 Q150,100 180,70 L180,25 Q150,55 100,55 Z" 
-                  transition={{ delay: 0.3 }} 
+                  transition={{ delay: 0.1 }} 
                 />
                 
                 {/* Center Spine */}
@@ -86,30 +86,30 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
                   variants={drawLine} 
                   strokeWidth="4"
                   x1="100" y1="55" x2="100" y2="100" 
-                  transition={{ delay: 0.6 }} 
+                  transition={{ delay: 0.2 }} 
                 />
 
                 {/* Left Page Text Lines */}
-                <motion.path variants={drawLine} strokeWidth="2" opacity="0.6" d="M35,45 Q60,65 90,65" transition={{ delay: 0.9 }} />
-                <motion.path variants={drawLine} strokeWidth="2" opacity="0.6" d="M35,55 Q60,75 90,75" transition={{ delay: 1.1 }} />
+                <motion.path variants={drawLine} strokeWidth="2" opacity="0.6" d="M35,45 Q60,65 90,65" transition={{ delay: 0.3 }} />
+                <motion.path variants={drawLine} strokeWidth="2" opacity="0.6" d="M35,55 Q60,75 90,75" transition={{ delay: 0.35 }} />
                 
                 {/* Right Page Text Lines */}
-                <motion.path variants={drawLine} strokeWidth="2" opacity="0.6" d="M165,45 Q140,65 110,65" transition={{ delay: 1.3 }} />
-                <motion.path variants={drawLine} strokeWidth="2" opacity="0.6" d="M165,55 Q140,75 110,75" transition={{ delay: 1.5 }} />
+                <motion.path variants={drawLine} strokeWidth="2" opacity="0.6" d="M165,45 Q140,65 110,65" transition={{ delay: 0.4 }} />
+                <motion.path variants={drawLine} strokeWidth="2" opacity="0.6" d="M165,55 Q140,75 110,75" transition={{ delay: 0.45 }} />
               </g>
 
               {/* ── Sun Rays emerging from the book (Brand Connection) ── */}
               <g stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" opacity="0.8">
                 {/* Center up ray */}
-                <motion.line variants={drawLine} x1="100" y1="40" x2="100" y2="10" transition={{ delay: 2.0 }} />
+                <motion.line variants={drawLine} x1="100" y1="40" x2="100" y2="10" transition={{ delay: 0.5 }} />
                 {/* Top left ray */}
-                <motion.line variants={drawLine} x1="85" y1="45" x2="55" y2="20" transition={{ delay: 2.2 }} />
+                <motion.line variants={drawLine} x1="85" y1="45" x2="55" y2="20" transition={{ delay: 0.55 }} />
                 {/* Top right ray */}
-                <motion.line variants={drawLine} x1="115" y1="45" x2="145" y2="20" transition={{ delay: 2.4 }} />
+                <motion.line variants={drawLine} x1="115" y1="45" x2="145" y2="20" transition={{ delay: 0.6 }} />
                 {/* Far left ray */}
-                <motion.line variants={drawLine} x1="70" y1="55" x2="35" y2="40" transition={{ delay: 2.6 }} />
+                <motion.line variants={drawLine} x1="70" y1="55" x2="35" y2="40" transition={{ delay: 0.65 }} />
                 {/* Far right ray */}
-                <motion.line variants={drawLine} x1="130" y1="55" x2="165" y2="40" transition={{ delay: 2.8 }} />
+                <motion.line variants={drawLine} x1="130" y1="55" x2="165" y2="40" transition={{ delay: 0.7 }} />
               </g>
 
               {/* Magical sparkling dot above the spine */}
@@ -117,7 +117,7 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
                 cx="100" cy="40" r="4" fill="#fcd34d"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: [0, 1.5, 1], opacity: 1 }}
-                transition={{ duration: 1, delay: 3.2, type: "spring" }}
+                transition={{ duration: 0.3, delay: 0.8, type: "spring" }}
               />
             </motion.svg>
 
@@ -128,7 +128,7 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
                 style={{ backgroundImage: "linear-gradient(135deg, #ef4444, #7f1d1d)" }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 3.5, ease: "backOut" }}
+                transition={{ duration: 0.4, delay: 0.8, ease: "backOut" }}
               >
                 AARAMBH
               </motion.h1>
@@ -137,7 +137,7 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
                 className="text-red-800 tracking-[0.6em] text-xs md:text-sm font-bold uppercase mt-1"
                 initial={{ opacity: 0, letterSpacing: "0.2em", y: -10 }}
                 animate={{ opacity: 1, letterSpacing: "0.6em", y: 0 }}
-                transition={{ duration: 1.5, delay: 4.2, ease: "easeOut" }}
+                transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
               >
                 INSTITUTE
               </motion.div>
@@ -146,7 +146,7 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
                 className="text-slate-500 tracking-[0.3em] text-[10px] md:text-xs uppercase mt-3 font-semibold"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.0, delay: 4.8 }}
+                transition={{ duration: 0.3, delay: 1.0 }}
               >
                 Step Towards Success
               </motion.div>
@@ -157,13 +157,13 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
               className="w-64 h-1 bg-red-100 rounded-full overflow-hidden mt-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.0 }}
+              transition={{ delay: 0.2 }}
             >
               <motion.div
                 className="h-full bg-gradient-to-r from-red-500 to-red-800 rounded-full"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 7.0, delay: 1.0, ease: "linear" }}
+                transition={{ duration: 1.0, delay: 0.2, ease: "linear" }}
                 style={{ boxShadow: "0 0 10px rgba(185,28,28,0.5)" }}
               />
             </motion.div>
@@ -177,7 +177,7 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
           className="fixed inset-0 z-[9999] pointer-events-none"
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           style={{
             backdropFilter: "blur(20px) saturate(1.2)",
             WebkitBackdropFilter: "blur(20px) saturate(1.2)",

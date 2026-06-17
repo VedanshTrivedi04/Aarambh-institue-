@@ -236,7 +236,7 @@ export function AdminTeachers() {
                setShowAddTeacher(true);
                setShowBulkUpload(false);
             }}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white shadow-lg shadow-orange-500/30 hover:shadow-orange-500/40 transition-all"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white shadow-lg shadow-red-600/30 hover:shadow-red-600/40 transition-all"
             style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
           >
             <Plus className="w-4 h-4" />
@@ -270,36 +270,36 @@ export function AdminTeachers() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                    <input required type="text" name="first_name" value={formData.first_name} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="text" name="first_name" value={formData.first_name} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                    <input required type="text" name="last_name" value={formData.last_name} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="text" name="last_name" value={formData.last_name} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                    <input required type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Username (Optional)</label>
-                    <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder="Defaults to Email" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder="Defaults to Email" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                    <input required type="password" name="password" value={formData.password} onChange={handleInputChange} className={`w-full px-4 py-2 bg-gray-50 border rounded-xl focus:ring-2 transition-colors ${passwordError ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20' : 'border-gray-200 focus:border-orange-500 focus:ring-orange-500/20'}`} />
+                    <input required type="password" name="password" value={formData.password} onChange={handleInputChange} className={`w-full px-4 py-2 bg-gray-50 border rounded-xl focus:ring-2 transition-colors ${passwordError ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20' : 'border-gray-200 focus:border-red-600 focus:ring-red-600/20'}`} />
                     {passwordError && <p className="text-red-500 text-xs mt-1.5 font-medium">{passwordError}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Qualification</label>
-                    <input type="text" name="qualification" value={formData.qualification} onChange={handleInputChange} placeholder="e.g. M.Sc Mathematics" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input type="text" name="qualification" value={formData.qualification} onChange={handleInputChange} placeholder="e.g. M.Sc Mathematics" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Specialization</label>
-                    <input type="text" name="specialization" value={formData.specialization} onChange={handleInputChange} placeholder="e.g. Calculus" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input type="text" name="specialization" value={formData.specialization} onChange={handleInputChange} placeholder="e.g. Calculus" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                 </div>
                 
@@ -320,7 +320,7 @@ export function AdminTeachers() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-6 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all disabled:opacity-50"
+                    className="px-6 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-red-600/20 hover:shadow-red-600/30 transition-all disabled:opacity-50"
                     style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
                   >
                     {isSubmitting ? 'Creating...' : 'Create Account'}
@@ -337,10 +337,10 @@ export function AdminTeachers() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="bg-white border border-orange-100 rounded-2xl p-6 shadow-sm"
+          className="bg-white border border-red-100 rounded-2xl p-6 shadow-sm"
         >
           <h3 className="text-lg font-bold text-gray-900 mb-4">Bulk Upload Teachers</h3>
-          <label className="block border-2 border-dashed border-gray-200 bg-gray-50 rounded-xl p-8 text-center mb-4 transition-colors hover:border-orange-300 cursor-pointer">
+          <label className="block border-2 border-dashed border-gray-200 bg-gray-50 rounded-xl p-8 text-center mb-4 transition-colors hover:border-red-300 cursor-pointer">
             <input type="file" accept=".csv" className="hidden" onChange={handleFileChange} />
             <Upload className="w-12 h-12 text-gray-400 mx-auto mb-3" />
             <p className="text-gray-700 font-medium mb-2">
@@ -349,7 +349,7 @@ export function AdminTeachers() {
             <p className="text-gray-500 text-sm">CSV must have columns: Name, Email, Phone, Qualification, Specialization</p>
           </label>
           {uploadStatus && (
-            <div className="mb-4 p-3 rounded-lg bg-orange-50 text-orange-800 text-sm whitespace-pre-wrap font-medium">
+            <div className="mb-4 p-3 rounded-lg bg-red-50 text-red-900 text-sm whitespace-pre-wrap font-medium">
               {uploadStatus}
             </div>
           )}
@@ -357,13 +357,13 @@ export function AdminTeachers() {
             <a 
               href="#" 
               onClick={downloadSampleCSV}
-              className="text-orange-600 hover:text-orange-700 text-sm font-semibold transition-colors"
+              className="text-red-700 hover:text-red-800 text-sm font-semibold transition-colors"
             >
               Download Sample CSV Template →
             </a>
             <button
               onClick={handleBulkUpload}
-              className="px-5 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all disabled:opacity-50"
+              className="px-5 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-red-600/20 hover:shadow-red-600/30 transition-all disabled:opacity-50"
               style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
               disabled={!selectedFile}
             >
@@ -386,16 +386,16 @@ export function AdminTeachers() {
               <motion.div
                 key={teacher.id}
                 whileHover={{ y: -4 }}
-                className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-orange-300 transition-all shadow-sm border-t-4 border-t-orange-500"
+                className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-red-300 transition-all shadow-sm border-t-4 border-t-red-600"
               >
                 {/* Avatar */}
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-xl uppercase shadow-sm">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white font-bold text-xl uppercase shadow-sm">
                     {initials || "T"}
                   </div>
                   <div>
                     <h3 className="text-gray-900 font-bold text-lg">{teacher.first_name} {teacher.last_name}</h3>
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 border border-blue-200">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-50 text-slate-600 border border-slate-200">
                       {teacher.email}
                     </span>
                   </div>
@@ -428,7 +428,7 @@ export function AdminTeachers() {
 
                 {/* Actions */}
                 <div className="flex gap-2">
-                  <button onClick={() => openAnalyticsModal(teacher)} className="flex-1 px-3 py-2 rounded-lg text-orange-600 hover:text-orange-700 transition-colors text-sm font-bold border border-gray-200 hover:bg-gray-50 shadow-sm">
+                  <button onClick={() => openAnalyticsModal(teacher)} className="flex-1 px-3 py-2 rounded-lg text-red-700 hover:text-red-800 transition-colors text-sm font-bold border border-gray-200 hover:bg-gray-50 shadow-sm">
                     View Analytics
                   </button>
                   <button onClick={() => openEditModal(teacher)} className="flex-1 px-3 py-2 rounded-lg text-gray-700 hover:text-gray-900 transition-colors text-sm font-bold border border-gray-200 hover:bg-gray-50 shadow-sm">
@@ -466,27 +466,27 @@ export function AdminTeachers() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                    <input required type="text" name="first_name" value={editFormData.first_name} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="text" name="first_name" value={editFormData.first_name} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                    <input required type="text" name="last_name" value={editFormData.last_name} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="text" name="last_name" value={editFormData.last_name} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input required type="email" name="email" value={editFormData.email} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="email" name="email" value={editFormData.email} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                    <input required type="tel" name="phone" value={editFormData.phone} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="tel" name="phone" value={editFormData.phone} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Qualification</label>
-                    <input type="text" name="qualification" value={editFormData.qualification} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input type="text" name="qualification" value={editFormData.qualification} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Specialization</label>
-                    <input type="text" name="specialization" value={editFormData.specialization} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input type="text" name="specialization" value={editFormData.specialization} onChange={handleEditInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                 </div>
                 
@@ -507,7 +507,7 @@ export function AdminTeachers() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-6 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all disabled:opacity-50"
+                    className="px-6 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-red-600/20 hover:shadow-red-600/30 transition-all disabled:opacity-50"
                     style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
                   >
                     {isSubmitting ? 'Saving...' : 'Save Changes'}
@@ -541,7 +541,7 @@ export function AdminTeachers() {
             
             <div className="p-6">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-xl uppercase shadow-sm">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white font-bold text-xl uppercase shadow-sm">
                   {(selectedTeacher.first_name?.[0] || '') + (selectedTeacher.last_name?.[0] || '') || "T"}
                 </div>
                 <div>
@@ -551,16 +551,16 @@ export function AdminTeachers() {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-orange-50 p-4 rounded-xl border border-orange-100">
-                  <div className="text-orange-500 mb-1">
+                <div className="bg-red-50 p-4 rounded-xl border border-red-100">
+                  <div className="text-red-600 mb-1">
                     <BarChart className="w-6 h-6" />
                   </div>
                   <div className="text-2xl font-black text-gray-900">98%</div>
                   <div className="text-gray-600 text-sm font-medium">Student Satisfaction</div>
                 </div>
                 
-                <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
-                  <div className="text-blue-500 mb-1">
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <div className="text-slate-500 mb-1">
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>

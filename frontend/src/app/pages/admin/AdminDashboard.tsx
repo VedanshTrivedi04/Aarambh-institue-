@@ -17,7 +17,7 @@ function StatCard({ stat }: { stat: any }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-orange-200 transition-all duration-300"
+      className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-red-200 transition-all duration-300"
     >
       <div className="flex items-start justify-between mb-4">
         <div
@@ -288,7 +288,7 @@ export function AdminDashboard() {
                   >
                     <td className="py-3 px-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-xs font-bold uppercase">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white text-xs font-bold uppercase">
                           {initials || "S"}
                         </div>
                         <span className="text-gray-900 font-medium">{student.first_name} {student.last_name}</span>

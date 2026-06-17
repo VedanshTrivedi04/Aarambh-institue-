@@ -220,7 +220,7 @@ export function TeacherChat() {
               <h2 className="text-white font-bold">Chat Rooms</h2>
               <button
                 onClick={() => setShowCreateRoom(!showCreateRoom)}
-                className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 hover:bg-orange-500/25 transition-colors"
+                className="p-1.5 rounded-lg bg-red-600/15 text-red-400 hover:bg-red-600/25 transition-colors"
               >
                 <Plus className="w-4 h-4" />
               </button>
@@ -232,7 +232,7 @@ export function TeacherChat() {
                 placeholder="Search chats..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 bg-white/[0.05] border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-orange-500/50 text-sm"
+                className="w-full pl-9 pr-4 py-2 bg-white/[0.05] border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-red-600/50 text-sm"
               />
             </div>
           </div>
@@ -251,14 +251,14 @@ export function TeacherChat() {
                 placeholder="Room name"
                 value={newRoomName}
                 onChange={(e) => setNewRoomName(e.target.value)}
-                className="w-full px-3 py-2 bg-white/[0.05] border border-white/15 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-orange-500/50 text-sm mb-2"
+                className="w-full px-3 py-2 bg-white/[0.05] border border-white/15 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-red-600/50 text-sm mb-2"
               />
               <div className="max-h-32 overflow-y-auto space-y-1 mb-2">
                 {students.map((s) => (
                   <label key={s.id} className="flex items-center gap-2 cursor-pointer p-1.5 rounded-lg hover:bg-white/[0.05]">
                     <input
                       type="checkbox"
-                      className="rounded accent-orange-500"
+                      className="rounded accent-red-600"
                       checked={selectedParticipants.includes(s.id)}
                       onChange={(e) => {
                         if (e.target.checked) {
@@ -297,15 +297,15 @@ export function TeacherChat() {
                   onClick={() => selectRoom(room)}
                   className={`w-full text-left p-3 rounded-xl transition-all ${
                     selectedRoom?.id === room.id
-                      ? "bg-orange-500/15 border border-orange-500/30"
+                      ? "bg-red-600/15 border border-red-600/30"
                       : "bg-white/[0.03] hover:bg-white/[0.06] border border-white/10"
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm ${
                       room.is_group
-                        ? 'bg-blue-500'
-                        : 'bg-gradient-to-br from-orange-500 to-red-600'
+                        ? 'bg-slate-500'
+                        : 'bg-gradient-to-br from-red-600 to-red-600'
                     }`}>
                       {getRoomInitials(room)}
                     </div>
@@ -330,7 +330,7 @@ export function TeacherChat() {
               <div className="p-4 border-b border-white/10 shrink-0">
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${
-                    selectedRoom.is_group ? 'bg-blue-500' : 'bg-gradient-to-br from-orange-500 to-red-600'
+                    selectedRoom.is_group ? 'bg-slate-500' : 'bg-gradient-to-br from-red-600 to-red-600'
                   }`}>
                     {getRoomInitials(selectedRoom)}
                   </div>
@@ -359,7 +359,7 @@ export function TeacherChat() {
                     return (
                       <div key={msg.id} className={`flex ${mine ? 'justify-end' : 'justify-start'}`}>
                         {!mine && (
-                          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold mr-2 mt-1 shrink-0">
+                          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-slate-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold mr-2 mt-1 shrink-0">
                             {(msg.sender_name || msg.sender?.first_name || 'U')[0].toUpperCase()}
                           </div>
                         )}
@@ -371,7 +371,7 @@ export function TeacherChat() {
                           )}
                           <div className={`rounded-2xl p-3 ${
                             mine
-                              ? 'bg-orange-500/20 border border-orange-500/30 rounded-tr-sm'
+                              ? 'bg-red-600/20 border border-red-600/30 rounded-tr-sm'
                               : 'bg-white/[0.06] border border-white/10 rounded-tl-sm'
                           }`}>
                             <p className={`text-sm ${mine ? 'text-white/90' : 'text-white/80'}`}>
@@ -401,7 +401,7 @@ export function TeacherChat() {
                     onChange={(e) => setMessageText(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Type a message... (Enter to send)"
-                    className="flex-1 px-4 py-2 bg-white/[0.05] border border-white/15 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-orange-500/50"
+                    className="flex-1 px-4 py-2 bg-white/[0.05] border border-white/15 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-red-600/50"
                   />
                   <button
                     onClick={sendMessage}

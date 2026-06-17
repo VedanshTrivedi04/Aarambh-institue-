@@ -83,7 +83,7 @@ export function StudentNotes() {
             placeholder="Search notes..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white/[0.05] border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-orange-500/50 text-sm"
+            className="w-full pl-10 pr-4 py-2.5 bg-white/[0.05] border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-red-600/50 text-sm"
           />
         </div>
         <div className="flex gap-2 flex-wrap">
@@ -91,7 +91,7 @@ export function StudentNotes() {
             onClick={() => setSelectedSubject("all")}
             className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
               selectedSubject === "all"
-                ? "bg-orange-500 text-white"
+                ? "bg-red-600 text-white"
                 : "bg-white/[0.05] text-white/70 hover:bg-white/[0.08] border border-white/10"
             }`}
           >
@@ -103,7 +103,7 @@ export function StudentNotes() {
               onClick={() => setSelectedSubject(s.name)}
               className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
                 selectedSubject === s.name
-                  ? "bg-orange-500 text-white"
+                  ? "bg-red-600 text-white"
                   : "bg-white/[0.05] text-white/70 hover:bg-white/[0.08] border border-white/10"
               }`}
             >
@@ -133,13 +133,13 @@ export function StudentNotes() {
               <motion.div
                 key={note.id}
                 whileHover={{ y: -4 }}
-                className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-orange-500/30 transition-all"
+                className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-red-600/30 transition-all"
               >
                 <div className="flex items-start justify-between mb-4">
                   {getFileIcon(note.file_type)}
                   <div className="flex flex-col gap-1 items-end">
                     {isNew(note.created_at) && (
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/20">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-red-600/15 text-red-400 border border-red-600/20">
                         NEW
                       </span>
                     )}
@@ -158,16 +158,16 @@ export function StudentNotes() {
                 )}
 
                 <div className="flex gap-2 mb-3 flex-wrap">
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-600/15 text-red-400 border border-red-600/20">
                     {subjectName}
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20 uppercase">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-500/15 text-blue-400 border border-slate-500/20 uppercase">
                     {note.file_type}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-xs font-bold">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white text-xs font-bold">
                     {uploaderName[0] || "T"}
                   </div>
                   <span className="text-white/60 text-sm">By {uploaderName}</span>
@@ -182,7 +182,7 @@ export function StudentNotes() {
                   className={`w-full py-2.5 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${
                     isDownloaded
                       ? "bg-white/[0.05] text-white/50 border border-white/10"
-                      : "bg-orange-500 text-white hover:bg-orange-600"
+                      : "bg-red-600 text-white hover:bg-red-700"
                   }`}
                 >
                   {isDownloaded ? (

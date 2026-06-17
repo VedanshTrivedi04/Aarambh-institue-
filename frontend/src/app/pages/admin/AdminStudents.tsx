@@ -193,7 +193,7 @@ export function AdminStudents() {
                setShowAddStudent(true);
                setShowBulkUpload(false);
             }}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white shadow-lg shadow-orange-500/30 hover:shadow-orange-500/40 transition-all"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white shadow-lg shadow-red-600/30 hover:shadow-red-600/40 transition-all"
             style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
           >
             <Plus className="w-4 h-4" />
@@ -227,32 +227,32 @@ export function AdminStudents() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                    <input required type="text" name="first_name" value={formData.first_name} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="text" name="first_name" value={formData.first_name} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                    <input required type="text" name="last_name" value={formData.last_name} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="text" name="last_name" value={formData.last_name} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                    <input required type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input required type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Username (Optional)</label>
-                    <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder="Defaults to Email" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20" />
+                    <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder="Defaults to Email" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                    <input required type="password" name="password" value={formData.password} onChange={handleInputChange} className={`w-full px-4 py-2 bg-gray-50 border rounded-xl focus:ring-2 transition-colors ${passwordError ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20' : 'border-gray-200 focus:border-orange-500 focus:ring-orange-500/20'}`} />
+                    <input required type="password" name="password" value={formData.password} onChange={handleInputChange} className={`w-full px-4 py-2 bg-gray-50 border rounded-xl focus:ring-2 transition-colors ${passwordError ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20' : 'border-gray-200 focus:border-red-600 focus:ring-red-600/20'}`} />
                     {passwordError && <p className="text-red-500 text-xs mt-1.5 font-medium">{passwordError}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Class Grade</label>
-                    <select name="class_grade" value={formData.class_grade} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20">
+                    <select name="class_grade" value={formData.class_grade} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20">
                       <option value="10">10th</option>
                       <option value="11">11th</option>
                       <option value="12">12th</option>
@@ -260,7 +260,7 @@ export function AdminStudents() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Batch</label>
-                    <select name="batch" value={formData.batch} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20">
+                    <select name="batch" value={formData.batch} onChange={handleInputChange} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 focus:ring-2 focus:ring-red-600/20">
                       <option value="">Select a Batch</option>
                       <option value="Morning Batch">Morning Batch</option>
                       <option value="Evening Batch">Evening Batch</option>
@@ -287,7 +287,7 @@ export function AdminStudents() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-6 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all disabled:opacity-50"
+                    className="px-6 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-red-600/20 hover:shadow-red-600/30 transition-all disabled:opacity-50"
                     style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
                   >
                     {isSubmitting ? 'Creating...' : 'Create Account'}
@@ -304,10 +304,10 @@ export function AdminStudents() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="bg-white border border-orange-100 rounded-2xl p-6 shadow-sm"
+          className="bg-white border border-red-100 rounded-2xl p-6 shadow-sm"
         >
           <h3 className="text-lg font-bold text-gray-900 mb-4">Bulk Upload Students</h3>
-          <label className="block border-2 border-dashed border-gray-200 bg-gray-50 rounded-xl p-8 text-center mb-4 transition-colors hover:border-orange-300 cursor-pointer">
+          <label className="block border-2 border-dashed border-gray-200 bg-gray-50 rounded-xl p-8 text-center mb-4 transition-colors hover:border-red-300 cursor-pointer">
             <input type="file" accept=".csv" className="hidden" onChange={handleFileChange} />
             <Upload className="w-12 h-12 text-gray-400 mx-auto mb-3" />
             <p className="text-gray-700 font-medium mb-2">
@@ -316,7 +316,7 @@ export function AdminStudents() {
             <p className="text-gray-500 text-sm">CSV must have columns: Name, Email, Phone, Batch, Class, FeeStatus</p>
           </label>
           {uploadStatus && (
-            <div className="mb-4 p-3 rounded-lg bg-orange-50 text-orange-800 text-sm whitespace-pre-wrap font-medium">
+            <div className="mb-4 p-3 rounded-lg bg-red-50 text-red-900 text-sm whitespace-pre-wrap font-medium">
               {uploadStatus}
             </div>
           )}
@@ -324,13 +324,13 @@ export function AdminStudents() {
             <a 
               href="#" 
               onClick={downloadSampleCSV}
-              className="text-orange-600 hover:text-orange-700 text-sm font-semibold transition-colors"
+              className="text-red-700 hover:text-red-800 text-sm font-semibold transition-colors"
             >
               Download Sample CSV Template →
             </a>
             <button
               onClick={handleBulkUpload}
-              className="px-5 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all disabled:opacity-50"
+              className="px-5 py-2.5 rounded-xl font-semibold text-white shadow-md shadow-red-600/20 hover:shadow-red-600/30 transition-all disabled:opacity-50"
               style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}
               disabled={!selectedFile}
             >
@@ -349,13 +349,13 @@ export function AdminStudents() {
             placeholder="Search by name, phone, email..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all shadow-sm"
+            className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all shadow-sm"
           />
         </div>
         <select
           value={selectedClass}
           onChange={(e) => setSelectedClass(e.target.value)}
-          className="px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all shadow-sm cursor-pointer"
+          className="px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all shadow-sm cursor-pointer"
         >
           <option value="all">All Classes</option>
           <option value="10">Class 10</option>
@@ -393,7 +393,7 @@ export function AdminStudents() {
                     >
                       <td className="py-4 px-6">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-sm uppercase shadow-sm">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white font-bold text-sm uppercase shadow-sm">
                             {initials || "ST"}
                           </div>
                           <span className="text-gray-900 font-bold">{student.first_name} {student.last_name}</span>
@@ -408,7 +408,7 @@ export function AdminStudents() {
                       </td>
                       <td className="py-4 px-6 text-gray-500 text-sm font-medium">{new Date(student.date_joined).toLocaleDateString()}</td>
                       <td className="py-4 px-6">
-                        <button className="text-orange-600 hover:text-orange-700 transition-colors text-sm font-bold">
+                        <button className="text-red-700 hover:text-red-800 transition-colors text-sm font-bold">
                           View
                         </button>
                       </td>

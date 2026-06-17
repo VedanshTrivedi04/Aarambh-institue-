@@ -84,7 +84,7 @@ export function StudentPerformance() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-500 to-blue-700 flex items-center justify-center">
               <FileCheck className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -98,7 +98,7 @@ export function StudentPerformance() {
 
         <div className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -145,7 +145,7 @@ export function StudentPerformance() {
       {!isLoading && attendance && (
         <div className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Calendar className="w-5 h-5 text-orange-400" />
+            <Calendar className="w-5 h-5 text-red-400" />
             <h2 className="text-xl font-bold text-white">Attendance Summary</h2>
           </div>
           <div className="flex items-center gap-4 mb-4">
@@ -276,7 +276,7 @@ export function StudentPerformance() {
                         {score.test?.title || "Test"}
                       </td>
                       <td className="py-3 px-4">
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/20">
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-600/15 text-red-400 border border-red-600/20">
                           {score.test?.subject?.name || "General"}
                         </span>
                       </td>
