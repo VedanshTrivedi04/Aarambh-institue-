@@ -24,10 +24,10 @@ const subjects = [
 ];
 
 const THEMES = [
-  { accent: "#3B5BDB", bg: "from-blue-950 to-indigo-950", emoji: "🎯" },
-  { accent: "#7950F2", bg: "from-violet-950 to-purple-950", emoji: "📐" },
-  { accent: "#FF5C00", bg: "from-orange-950 to-red-950", emoji: "🏆" },
-  { accent: "#2F9E44", bg: "from-green-950 to-emerald-950", emoji: "🌟" },
+  { accent: "#3B5BDB", bg: "from-blue-50 to-indigo-100", emoji: "🎯" },
+  { accent: "#7950F2", bg: "from-violet-50 to-purple-100", emoji: "📐" },
+  { accent: "#b91c1c", bg: "from-red-50 to-rose-100", emoji: "🏆" },
+  { accent: "#2F9E44", bg: "from-green-50 to-emerald-100", emoji: "🌟" },
 ];
 
 interface CourseItem {
@@ -58,7 +58,7 @@ function ClassCard({ cls, index }: { cls: CourseItem; index: number }) {
     >
       <motion.div
         style={{ rotateX: tilt.rotateX, rotateY: tilt.rotateY, transformStyle: "preserve-3d" }}
-        className={`relative rounded-3xl overflow-hidden bg-gradient-to-br ${cls.bg} border border-white/5 h-full flex flex-col`}
+        className={`relative rounded-3xl overflow-hidden bg-gradient-to-br ${cls.bg} border border-white shadow-xl h-full flex flex-col`}
         whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
       >
@@ -79,20 +79,19 @@ function ClassCard({ cls, index }: { cls: CourseItem; index: number }) {
           <div className="flex items-start justify-between mb-5">
             <div className="text-4xl">{cls.emoji}</div>
             <div className="text-right">
-              <div className="text-white/20 text-5xl font-black leading-none">{cls.grade}</div>
+              <div className="text-slate-300 text-5xl font-black leading-none">{cls.grade}</div>
             </div>
           </div>
 
           <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: cls.accent }}>{cls.sub}</div>
-          <h3 className="font-black text-white text-2xl mb-3">{cls.title}</h3>
-          <p className="text-white/50 text-sm leading-relaxed mb-6 flex-1">{cls.desc}</p>
+          <h3 className="font-black text-slate-900 text-2xl mb-3">{cls.title}</h3>
+          <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-1">{cls.desc}</p>
 
           <div className="flex flex-wrap gap-1.5 mb-6">
             {cls.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[11px] px-2.5 py-1 rounded-lg font-semibold text-white/70 border border-white/10"
-                style={{ backgroundColor: `${cls.accent}15` }}
+                className="text-[11px] px-2.5 py-1 rounded-lg font-bold text-slate-700 bg-white shadow-sm border border-slate-200"
               >
                 {tag}
               </span>
@@ -137,7 +136,7 @@ const coursesData: CourseItem[] = [
     desc: "MP Board / CBSE / ICSE. Batch Timings: Morning 11:00 AM - 12:30 PM | Evening 5:00 PM - 6:30 PM. Fee: 800/- 1000/- (Monthly)",
     tags: ["Weekly Tests", "Study Material", "Doubt Classes"],
     accent: "#3B5BDB",
-    bg: "from-blue-950 to-indigo-950",
+    bg: "from-blue-50 to-indigo-100",
     featured: false,
   },
   {
@@ -148,8 +147,8 @@ const coursesData: CourseItem[] = [
     sub: "All Subjects",
     desc: "MPBOARD/CBSE/ICSE. Batch Timings: Morning 11:00AM - 1:00PM | Evening 4:00PM - 6:00 PM.",
     tags: ["Weekly Tests", "Study Material", "Doubt Classes"],
-    accent: "#FF5C00",
-    bg: "from-orange-950 to-red-950",
+    accent: "#b91c1c",
+    bg: "from-red-50 to-rose-100",
     featured: true,
   },
   {
@@ -161,7 +160,7 @@ const coursesData: CourseItem[] = [
     desc: "Duration: As per Academic Year.",
     tags: ["Weekly Tests", "Study Material", "Doubt Classes"],
     accent: "#2F9E44",
-    bg: "from-green-950 to-emerald-950",
+    bg: "from-green-50 to-emerald-100",
     featured: false,
   }
 ];
@@ -172,20 +171,20 @@ export function CoursesSection({ showViewAll, onViewAll }: { showViewAll?: boole
   const loading = false;
 
   return (
-    <section id="courses" className="py-28 bg-[#05101F] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="courses" className="py-28 bg-slate-50 overflow-hidden relative">
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-white opacity-40 blur-3xl pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
           <SectionTitle
             label="Programs"
             title={`Courses for\nEvery Board`}
             subtitle="Complete coaching for 10th, 11th & 12th — all subjects, all streams, all boards."
-            light
           />
           {showViewAll && (
             <motion.button
               whileHover={{ scale: 1.03, x: 4 }}
               onClick={onViewAll}
-              className="flex items-center gap-2 text-orange-400 font-bold text-sm whitespace-nowrap mb-14"
+              className="flex items-center gap-2 text-red-700 font-bold text-sm whitespace-nowrap mb-14"
             >
               View Full Details <ChevronRight className="w-4 h-4" />
             </motion.button>
@@ -207,20 +206,20 @@ export function CoursesSection({ showViewAll, onViewAll }: { showViewAll?: boole
         <div>
           {/* Board selector */}
           <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
-            <h3 className="text-white font-black text-xl">All Subjects by Board</h3>
-            <div className="flex gap-2 p-1 rounded-xl bg-white/5 border border-white/10">
+            <h3 className="text-slate-900 font-black text-xl">All Subjects by Board</h3>
+            <div className="flex gap-2 p-1 rounded-xl bg-white shadow-sm border border-slate-200">
               {boards.map((b) => (
                 <button
                   key={b.id}
                   onClick={() => setActiveBoard(b.id)}
                   className="relative px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
-                  style={{ color: activeBoard === b.id ? "white" : "rgba(255,255,255,0.4)" }}
+                  style={{ color: activeBoard === b.id ? "white" : "#64748b" }}
                 >
                   {activeBoard === b.id && (
                     <motion.div
                       layoutId="board-pill"
-                      className="absolute inset-0 rounded-lg"
-                      style={{ backgroundColor: boards.find(x => x.id === b.id)?.color + "33", border: `1px solid ${boards.find(x => x.id === b.id)?.color}55` }}
+                      className="absolute inset-0 rounded-lg shadow-sm"
+                      style={{ backgroundColor: boards.find(x => x.id === b.id)?.color }}
                     />
                   )}
                   <span className="relative z-10">{b.label}</span>
@@ -244,18 +243,17 @@ export function CoursesSection({ showViewAll, onViewAll }: { showViewAll?: boole
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.05 }}
-                  whileHover={{ y: -3, backgroundColor: "rgba(255,255,255,0.07)" }}
-                  className="flex gap-4 p-5 rounded-2xl border border-white/[0.07] bg-white/[0.03] transition-colors cursor-default"
+                  whileHover={{ y: -3, backgroundColor: "#ffffff" }}
+                  className="flex gap-4 p-5 rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-all cursor-default"
                 >
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: `${boards.find(b => b.id === activeBoard)?.color}25`, border: `1px solid ${boards.find(b => b.id === activeBoard)?.color}40` }}
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-white shadow-sm border border-slate-100"
                   >
                     <Icon className="w-5 h-5" style={{ color: boards.find(b => b.id === activeBoard)?.color }} />
                   </div>
                   <div>
-                    <div className="font-bold text-white/90 text-sm mb-1">{name}</div>
-                    <div className="text-white/35 text-xs leading-relaxed">{desc}</div>
+                    <div className="font-bold text-slate-800 text-sm mb-1">{name}</div>
+                    <div className="text-slate-500 text-xs leading-relaxed">{desc}</div>
                   </div>
                 </motion.div>
               ))}

@@ -30,9 +30,9 @@ export function Footer() {
   };
 
   return (
-    <footer style={{ background: "#030C1A" }}>
+    <footer style={{ background: "#450a0a" }}>
       {/* CTA Band */}
-      <div style={{ background: "linear-gradient(135deg, #FF5C00 0%, #FF3A00 100%)" }} className="py-14">
+      <div style={{ background: "linear-gradient(135deg, #b91c1c 0%, #991b1b 100%)" }} className="py-14">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -65,7 +65,7 @@ export function Footer() {
             whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}
             whileTap={{ scale: 0.97 }}
             onClick={() => scrollTo("#contact")}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white font-black text-[#FF5C00] rounded-2xl shadow-2xl"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white font-black text-[#b91c1c] rounded-2xl shadow-2xl"
           >
             Enroll Now — Free Demo <ArrowRight className="w-5 h-5" />
           </motion.button>
@@ -77,14 +77,8 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)" }}>
-                <GraduationCap className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <div className="font-black text-white">Aarambh Institute</div>
-                <div className="text-[#FF5C00] text-xs font-semibold">Excellence in Education</div>
-              </div>
+            <div className="flex items-center gap-3 mb-5 bg-white p-2 rounded-xl w-fit">
+              <img src="/logo.png" alt="Aarambh Institute" className="h-[40px] object-contain drop-shadow-sm" />
             </div>
             <p className="text-white/30 text-sm leading-relaxed mb-6">
               Education with values. Learning with joy. Expert coaching for Class 4th to 12th and College students.
@@ -135,7 +129,7 @@ export function Footer() {
             <ul className="space-y-4">
               {[
                 { Icon: Phone, v: "88397-14081", s: "79097-14081", c: "#3B5BDB" },
-                { Icon: Mail, v: "aarambhinstitute09@gmail.com", c: "#FF5C00" },
+                { Icon: Mail, v: "aarambhinstitute09@gmail.com", c: "#b91c1c" },
                 { Icon: MapPin, v: "8 Shantinath Puri, Hawa Bangla", s: "Indore, MP", c: "#2F9E44" },
               ].map(({ Icon, v, s, c }, i) => (
                 <li key={i} className="flex gap-3">

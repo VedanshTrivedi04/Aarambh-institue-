@@ -84,18 +84,18 @@ export function LoginPage() {
     : "student@aarambh.com or your username";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 flex items-center justify-center px-4 py-12 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-100 flex items-center justify-center px-4 py-12 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 -left-20 w-96 h-96 bg-orange-200/40 rounded-full blur-3xl"
+          className="absolute top-20 -left-20 w-96 h-96 bg-red-200/40 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-20 -right-20 w-96 h-96 bg-red-200/40 rounded-full blur-3xl"
+          className="absolute bottom-20 -right-20 w-96 h-96 bg-red-300/40 rounded-full blur-3xl"
         />
       </div>
 
@@ -105,14 +105,14 @@ export function LoginPage() {
         transition={{ duration: 0.6 }}
         className="relative w-full max-w-md"
       >
-        <div className="bg-white backdrop-blur-xl border border-orange-100 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-white backdrop-blur-xl border border-red-100 rounded-3xl p-8 shadow-2xl">
           {/* Header */}
           <div className="text-center mb-8">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 mb-4 shadow-lg shadow-orange-500/30"
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-red-700 to-red-600 mb-4 shadow-lg shadow-red-500/30"
             >
               <GraduationCap className="w-8 h-8 text-white" />
             </motion.div>
@@ -138,18 +138,18 @@ export function LoginPage() {
                     onClick={() => setRole(option.value as UserRole)}
                     className={`relative p-3 rounded-xl border-2 transition-all flex items-center gap-2 ${
                       isSelected
-                        ? "border-orange-500 bg-orange-50"
-                        : "border-gray-200 bg-gray-50 hover:border-orange-300"
+                        ? "border-red-600 bg-red-50"
+                        : "border-gray-200 bg-gray-50 hover:border-red-300"
                     }`}
                   >
                     <Icon
                       className={`w-5 h-5 ${
-                        isSelected ? "text-orange-500" : "text-gray-400"
+                        isSelected ? "text-red-600" : "text-gray-400"
                       }`}
                     />
                     <span
                       className={`text-sm font-semibold ${
-                        isSelected ? "text-orange-600" : "text-gray-600"
+                        isSelected ? "text-red-700" : "text-gray-600"
                       }`}
                     >
                       {option.label}
@@ -157,7 +157,7 @@ export function LoginPage() {
                     {isSelected && (
                       <motion.div
                         layoutId="role-indicator"
-                        className="absolute inset-0 rounded-xl border-2 border-orange-500 pointer-events-none"
+                        className="absolute inset-0 rounded-xl border-2 border-red-600 pointer-events-none"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -193,7 +193,7 @@ export function LoginPage() {
                   onChange={(e) => setFormData({ ...formData, identifier: e.target.value })}
                   placeholder={placeholderHint}
                   autoComplete="username"
-                  className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all"
+                  className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all"
                   required
                 />
               </div>
@@ -213,7 +213,7 @@ export function LoginPage() {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   placeholder="Enter your password"
                   autoComplete="current-password"
-                  className="w-full pl-12 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all"
+                  className="w-full pl-12 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all"
                   required
                 />
                 <button
@@ -227,7 +227,7 @@ export function LoginPage() {
               <div className="flex justify-end mt-2">
                 <button
                   type="button"
-                  className="text-sm text-orange-500 hover:text-orange-600 transition-colors"
+                  className="text-sm text-red-600 hover:text-red-700 transition-colors"
                 >
                   Forgot Password?
                 </button>
@@ -236,7 +236,7 @@ export function LoginPage() {
 
             {/* Role hint */}
             <div className="text-xs text-gray-400 bg-gray-50 rounded-lg px-3 py-2 border border-gray-100">
-              Signing in as: <span className="font-semibold text-orange-500">{selectedRole?.label}</span>
+              Signing in as: <span className="font-semibold text-red-600">{selectedRole?.label}</span>
               {" "}— credentials are set by the Admin.
             </div>
 
@@ -246,7 +246,7 @@ export function LoginPage() {
               disabled={loading}
               whileHover={{ scale: loading ? 1 : 1.02 }}
               whileTap={{ scale: loading ? 1 : 0.98 }}
-              className={`w-full py-3.5 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-semibold shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all flex items-center justify-center gap-2 mt-2 ${
+              className={`w-full py-3.5 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-xl font-semibold shadow-lg shadow-red-600/30 hover:shadow-red-600/50 transition-all flex items-center justify-center gap-2 mt-2 ${
                 loading ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >

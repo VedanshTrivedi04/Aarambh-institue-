@@ -13,8 +13,7 @@ interface Testimonial {
   color: string;
   score?: string; // Optional since backend doesn't have it
 }
-
-const COLORS = ["#3B5BDB", "#2F9E44", "#7950F2", "#FF5C00", "#E64980"];
+const COLORS = ["#3B5BDB", "#2F9E44", "#7950F2", "#b91c1c", "#E64980"];
 
 const testimonialsData: Testimonial[] = [
   { id: "ts1", name: "Dhruvika", role: "Parent (6th)", text: "Aarambh Institute ke teachers bahut dedicated hain. Mere bachche ke marks aur confidence dono mein kaafi improvement hua hai. Hum institute ki teaching aur guidance se bahut santusht hain.", rating: 5, letter: "D", color: COLORS[0] },

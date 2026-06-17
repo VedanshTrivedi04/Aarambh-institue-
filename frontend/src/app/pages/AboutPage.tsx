@@ -33,7 +33,7 @@ const values = [
     icon: Target,
     title: "Our Mission",
     body: "To deliver quality, affordable education that empowers every student — regardless of background — to achieve academic excellence and unlock their full potential.",
-    accent: "#FF5C00",
+    accent: "#b91c1c",
   },
   {
     icon: Eye,
@@ -51,7 +51,7 @@ const values = [
 
 const stats = [
   { icon: Users, value: "5000+", label: "Students Coached", color: "#3B5BDB" },
-  { icon: Trophy, value: "150+", label: "Board Toppers", color: "#FF5C00" },
+  { icon: Trophy, value: "150+", label: "Board Toppers", color: "#b91c1c" },
   { icon: Star, value: "15+", label: "Years Excellence", color: "#F59F00" },
   { icon: GraduationCap, value: "15", label: "Expert Faculty", color: "#2F9E44" },
   { icon: BookOpen, value: "3", label: "Boards Covered", color: "#7950F2" },
@@ -83,7 +83,7 @@ const leadership = [
     exp: "25+ Years in Education",
     bio: "A visionary educator who started Aarambh with the belief that every child deserves quality coaching. Former government school teacher turned institute builder.",
     letter: "S",
-    color: "#FF5C00",
+    color: "#b91c1c",
   },
   {
     name: "Mrs. Anita Sharma",
@@ -112,8 +112,8 @@ function SectionLabel({ text, light }: { text: string; light?: boolean }) {
       viewport={{ once: true }}
       className={`inline-block text-[11px] font-bold tracking-[0.18em] uppercase mb-4 px-3 py-1.5 rounded-full border ${
         light
-          ? "border-orange-400/30 text-orange-400 bg-orange-400/10"
-          : "border-orange-200 text-orange-600 bg-orange-50"
+          ? "border-red-400/30 text-red-500 bg-red-400/10"
+          : "border-red-200 text-red-700 bg-red-50"
       }`}
     >
       {text}
@@ -172,24 +172,24 @@ export function AboutPage() {
       <div
         ref={heroRef}
         className="relative min-h-screen flex items-center overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #05101F 0%, #0A1830 55%, #0D0A1E 100%)" }}
+        style={{ background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 55%, #f1f5f9 100%)" }}
       >
         {/* Parallax background image */}
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
-          <img src={IMG_CAMPUS} alt="Campus" className="w-full h-full object-cover opacity-15 scale-110" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #05101F 40%, rgba(5,16,31,0.7))" }} />
+          <img src={IMG_CAMPUS} alt="Campus" className="w-full h-full object-cover opacity-5 scale-110" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #ffffff 40%, rgba(255,255,255,0.7))" }} />
         </motion.div>
 
         {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+        <div className="absolute inset-0 opacity-[0.05]" style={{
+          backgroundImage: "linear-gradient(rgba(0,0,0,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,1) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }} />
 
         {/* Glows */}
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full opacity-10 pointer-events-none"
-          style={{ background: "radial-gradient(circle, #FF5C00, transparent 70%)", filter: "blur(80px)" }} />
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 rounded-full opacity-8 pointer-events-none"
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full opacity-[0.03] pointer-events-none"
+          style={{ background: "radial-gradient(circle, #b91c1c, transparent 70%)", filter: "blur(80px)" }} />
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 rounded-full opacity-[0.03] pointer-events-none"
           style={{ background: "radial-gradient(circle, #3B5BDB, transparent 70%)", filter: "blur(70px)" }} />
 
         <motion.div
@@ -198,7 +198,7 @@ export function AboutPage() {
         >
           <button
             onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-white/30 hover:text-white/70 transition-colors text-sm font-medium mb-12"
+            className="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium mb-12"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </button>
@@ -208,10 +208,10 @@ export function AboutPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/10 bg-white/5"
+                className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-red-100 bg-red-50"
               >
-                <MapPin className="w-3.5 h-3.5 text-orange-400" />
-                <span className="text-white/50 text-xs font-medium">Indore, Madhya Pradesh · Est. 1995</span>
+                <MapPin className="w-3.5 h-3.5 text-red-600" />
+                <span className="text-slate-600 text-xs font-semibold">Indore, Madhya Pradesh · Est. 1995</span>
               </motion.div>
 
               <motion.h1
@@ -219,11 +219,11 @@ export function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
                 style={{ fontWeight: 900, lineHeight: 0.95, letterSpacing: "-0.03em", fontSize: "clamp(3.5rem,7vw,5.5rem)" }}
-                className="text-white mb-6"
+                className="text-slate-900 mb-6"
               >
                 About<br />
                 <span style={{
-                  background: "linear-gradient(90deg, #FF5C00, #FF9A3C, #FFD166)",
+                  background: "linear-gradient(90deg, #b91c1c, #dc2626)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -236,7 +236,7 @@ export function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-white/50 text-lg leading-relaxed max-w-lg mb-10"
+                className="text-slate-600 text-lg leading-relaxed max-w-lg mb-10"
               >
                 We are more than a coaching institute. We are a community of learners, teachers, and believers — united by one goal: your success.
               </motion.p>
@@ -248,7 +248,7 @@ export function AboutPage() {
                 className="flex flex-wrap gap-3"
               >
                 {["15 Years", "5000+ Students", "MP Board · CBSE · ICSE", "Class 10–12"].map((tag) => (
-                  <span key={tag} className="px-3 py-1.5 rounded-lg text-sm text-white/50 border border-white/10 bg-white/[0.04] font-medium">
+                  <span key={tag} className="px-3 py-1.5 rounded-lg text-sm text-slate-600 border border-slate-200 bg-white font-medium shadow-sm">
                     {tag}
                   </span>
                 ))}
@@ -276,11 +276,11 @@ export function AboutPage() {
                     width: "62%",
                   }}
                   whileHover={{ zIndex: 50, scale: 1.04, rotate: 0 }}
-                  className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 cursor-pointer"
+                  className="rounded-2xl overflow-hidden shadow-xl border border-slate-200 cursor-pointer bg-white"
                 >
                   <img src={img} alt={label} className="w-full h-44 object-cover" />
-                  <div className="px-3 py-2 bg-white/5 backdrop-blur-sm">
-                    <span className="text-white/60 text-xs font-semibold">{label}</span>
+                  <div className="px-3 py-2 bg-white backdrop-blur-sm">
+                    <span className="text-slate-800 text-xs font-semibold">{label}</span>
                   </div>
                 </motion.div>
               ))}
@@ -291,7 +291,7 @@ export function AboutPage() {
         {/* Scroll cue */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <motion.div
-            className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent"
+            className="w-px h-10 bg-gradient-to-b from-slate-400 to-transparent"
             animate={{ scaleY: [1, 0.3, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
@@ -299,7 +299,7 @@ export function AboutPage() {
       </div>
 
       {/* ── STATS STRIP ── */}
-      <div style={{ background: "#05101F", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <div style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,0.05)", borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {stats.map(({ icon: Icon, value, label, color }, i) => (
@@ -315,8 +315,8 @@ export function AboutPage() {
                   style={{ backgroundColor: `${color}18`, border: `1px solid ${color}35` }}>
                   <Icon className="w-5 h-5" style={{ color }} />
                 </div>
-                <div className="font-black text-white text-2xl leading-none mb-1">{value}</div>
-                <div className="text-white/30 text-xs font-medium">{label}</div>
+                <div className="font-black text-slate-900 text-2xl leading-none mb-1">{value}</div>
+                <div className="text-slate-500 text-xs font-semibold">{label}</div>
               </motion.div>
             ))}
           </div>
@@ -345,23 +345,23 @@ export function AboutPage() {
 
             {/* Tilt image */}
             <TiltCard className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ boxShadow: "0 40px 80px -20px rgba(0,0,0,0.35)" }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ boxShadow: "0 40px 80px -20px rgba(0,0,0,0.15)" }}>
                 <img src={IMG_TEAM} alt="Team" className="w-full h-80 object-cover" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(5,16,31,0.6) 0%, transparent 60%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)" }} />
                 <div className="absolute bottom-5 left-5 text-white">
                   <p className="font-bold">The Founding Team</p>
-                  <p className="text-white/50 text-sm">Still together, still teaching</p>
+                  <p className="text-white/80 text-sm font-medium">Still together, still teaching</p>
                 </div>
               </div>
               {/* Floating badge */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-5 -right-5 bg-[#FF5C00] text-white rounded-2xl px-4 py-3 shadow-xl"
+                className="absolute -top-5 -right-5 bg-[#b91c1c] text-white rounded-2xl px-4 py-3 shadow-xl"
                 style={{ transform: "translateZ(40px)" }}
               >
                 <div className="font-black text-xl leading-none">2010</div>
-                <div className="text-orange-100 text-[10px] font-semibold uppercase tracking-wide mt-0.5">Founded</div>
+                <div className="text-red-100 text-[10px] font-semibold uppercase tracking-wide mt-0.5">Founded</div>
               </motion.div>
             </TiltCard>
           </div>
@@ -410,19 +410,19 @@ export function AboutPage() {
       </div>
 
       {/* ── TIMELINE ── */}
-      <div className="py-28" style={{ background: "#05101F" }}>
+      <div className="py-28" style={{ background: "#ffffff" }}>
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <SectionLabel text="Journey" light />
-            <Heading light>15 Years in the Making</Heading>
-            <p className="text-white/40 max-w-lg mx-auto">
+            <SectionLabel text="Journey" />
+            <Heading>15 Years in the Making</Heading>
+            <p className="text-slate-500 max-w-lg mx-auto">
               Every milestone shaped who we are today. Click any year to read the story.
             </p>
           </div>
 
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-white/10" />
+            <div className="absolute left-6 top-0 bottom-0 w-px bg-slate-200" />
 
             <div className="space-y-2">
               {timeline.map(({ year, title, desc }, i) => {
@@ -441,28 +441,28 @@ export function AboutPage() {
                     >
                       {/* Dot */}
                       <div className="relative flex-shrink-0">
-                        <div
+                          <div
                           className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 border"
                           style={{
-                            backgroundColor: isOpen ? "#FF5C00" : "rgba(255,255,255,0.05)",
-                            borderColor: isOpen ? "#FF5C00" : "rgba(255,255,255,0.1)",
-                            boxShadow: isOpen ? "0 0 20px rgba(255,92,0,0.4)" : "none",
+                            backgroundColor: isOpen ? "#b91c1c" : "#ffffff",
+                            borderColor: isOpen ? "#b91c1c" : "#e2e8f0",
+                            boxShadow: isOpen ? "0 0 20px rgba(185,28,28,0.3)" : "0 2px 4px rgba(0,0,0,0.05)",
                           }}
                         >
-                          <span className="text-xs font-black" style={{ color: isOpen ? "white" : "rgba(255,255,255,0.3)" }}>
+                          <span className="text-xs font-black" style={{ color: isOpen ? "white" : "#64748b" }}>
                             {year.slice(2)}
                           </span>
                         </div>
                       </div>
 
-                      <div className="flex-1 py-4 border-b border-white/[0.05] group-hover:border-white/10 transition-colors">
+                      <div className="flex-1 py-4 border-b border-slate-100 group-hover:border-slate-300 transition-colors">
                         <div className="flex items-center justify-between gap-4">
                           <div>
-                            <span className="text-white/30 text-xs font-bold">{year}</span>
-                            <h3 className="font-bold text-white/80 group-hover:text-white transition-colors">{title}</h3>
+                            <span className="text-slate-400 text-xs font-bold">{year}</span>
+                            <h3 className="font-bold text-slate-800 group-hover:text-red-700 transition-colors">{title}</h3>
                           </div>
                           <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
-                            <ChevronDown className="w-4 h-4 text-white/20 group-hover:text-white/40 transition-colors" />
+                            <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-slate-600 transition-colors" />
                           </motion.div>
                         </div>
 
@@ -472,7 +472,7 @@ export function AboutPage() {
                           transition={{ duration: 0.3 }}
                           className="overflow-hidden"
                         >
-                          <p className="text-white/40 text-sm mt-3 leading-relaxed pr-6">{desc}</p>
+                          <p className="text-slate-500 text-sm mt-3 leading-relaxed pr-6">{desc}</p>
                         </motion.div>
                       </div>
                     </button>
@@ -568,10 +568,10 @@ export function AboutPage() {
                 className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl"
               >
                 <img src={IMG_MEDALS} alt="Awards" className="w-full h-full object-cover" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(5,16,31,0.7) 0%, transparent 60%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)" }} />
                 <div className="absolute bottom-6 left-6">
                   <div className="font-black text-white text-2xl">6+</div>
-                  <div className="text-white/50 text-sm">Regional recognitions</div>
+                  <div className="text-white/80 text-sm">Regional recognitions</div>
                 </div>
               </motion.div>
               <motion.div
@@ -588,13 +588,13 @@ export function AboutPage() {
       </div>
 
       {/* ── FACILITIES ── */}
-      <div className="py-28" style={{ background: "#05101F" }}>
+      <div className="py-28" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,0.05)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <SectionLabel text="Facilities" light />
-              <Heading light>Built for<br />Learning</Heading>
-              <p className="text-white/40 leading-relaxed mb-10">
+              <SectionLabel text="Facilities" />
+              <Heading>Built for<br />Learning</Heading>
+              <p className="text-slate-500 leading-relaxed mb-10">
                 Our campus in Indore is designed to create the best possible environment — every classroom, lab, and corner is purposeful.
               </p>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -605,13 +605,13 @@ export function AboutPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 }}
-                    whileHover={{ y: -4, backgroundColor: "rgba(255,255,255,0.07)" }}
-                    className="flex gap-3 p-4 rounded-2xl border border-white/[0.07] bg-white/[0.03] transition-colors"
+                    whileHover={{ y: -4, backgroundColor: "rgba(0,0,0,0.02)" }}
+                    className="flex gap-3 p-4 rounded-2xl border border-slate-100 bg-slate-50 transition-colors"
                   >
                     <div className="text-2xl flex-shrink-0">{f.icon}</div>
                     <div>
-                      <div className="font-bold text-white/80 text-sm">{f.label}</div>
-                      <div className="text-white/30 text-xs leading-relaxed">{f.desc}</div>
+                      <div className="font-bold text-slate-800 text-sm">{f.label}</div>
+                      <div className="text-slate-500 text-xs leading-relaxed">{f.desc}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -624,13 +624,13 @@ export function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative rounded-3xl overflow-hidden shadow-2xl"
-              style={{ boxShadow: "0 40px 80px rgba(0,0,0,0.5)" }}
+              style={{ boxShadow: "0 40px 80px rgba(0,0,0,0.15)" }}
             >
               <img src={IMG_LIBRARY} alt="Library" className="w-full h-96 object-cover" />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(5,16,31,0.8) 0%, transparent 50%)" }} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)" }} />
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <div className="font-black text-xl mb-1">Our Library</div>
-                <div className="text-white/50 text-sm">2000+ books · Open 8 AM – 8 PM daily</div>
+                <div className="text-white/80 text-sm">2000+ books · Open 8 AM – 8 PM daily</div>
               </div>
             </motion.div>
           </div>
@@ -649,11 +649,11 @@ export function AboutPage() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(255,92,0,0.3)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(185,28,28,0.3)" }}
               whileTap={{ scale: 0.97 }}
               onClick={() => { navigate("/"); setTimeout(() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }), 400); }}
               className="flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white text-base"
-              style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)", boxShadow: "0 8px 30px rgba(255,92,0,0.2)" }}
+              style={{ background: "linear-gradient(135deg, #b91c1c, #991b1b)", boxShadow: "0 8px 30px rgba(185,28,28,0.2)" }}
             >
               Book Free Demo Class <ArrowRight className="w-5 h-5" />
             </motion.button>
@@ -668,11 +668,11 @@ export function AboutPage() {
           </div>
 
           {/* Quick contact */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-gray-400 text-sm">
-            <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-[#FF5C00] transition-colors font-medium">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-slate-500 text-sm">
+            <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-red-700 transition-colors font-medium">
               <Phone className="w-4 h-4" /> +91 98765 43210
             </a>
-            <span className="text-gray-200">|</span>
+            <span className="text-slate-300">|</span>
             <a href="mailto:info@aarambhinstitute.in" className="flex items-center gap-2 hover:text-[#3B5BDB] transition-colors font-medium">
               <Mail className="w-4 h-4" /> info@aarambhinstitute.in
             </a>

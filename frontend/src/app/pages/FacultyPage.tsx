@@ -158,7 +158,7 @@ function FacultyCard({ teacher, index }: { teacher: (typeof allFaculty)[0]; inde
           <div className="flex items-start justify-between gap-4 mb-3">
             <div>
               <h3 className="font-black text-xl text-gray-900">{teacher.name}</h3>
-              <p className="text-orange-500 font-semibold text-sm">{teacher.subject}</p>
+              <p className="text-red-600 font-semibold text-sm">{teacher.subject}</p>
               <p className="text-gray-400 text-xs mt-0.5">{teacher.qualification}</p>
             </div>
             <div className="text-right flex-shrink-0">
@@ -172,28 +172,28 @@ function FacultyCard({ teacher, index }: { teacher: (typeof allFaculty)[0]; inde
 
           <div className="grid grid-cols-3 gap-3 mb-4">
             <div className="bg-gray-50 rounded-xl p-3 text-center">
-              <GraduationCap className="w-4 h-4 text-indigo-500 mx-auto mb-1" />
+              <GraduationCap className="w-4 h-4 text-red-600 mx-auto mb-1" />
               <div className="font-bold text-gray-900 text-sm">{teacher.exp}+</div>
               <div className="text-gray-400 text-[10px]">Years Exp.</div>
             </div>
             <div className="bg-gray-50 rounded-xl p-3 text-center">
-              <BookOpen className="w-4 h-4 text-green-500 mx-auto mb-1" />
+              <BookOpen className="w-4 h-4 text-red-500 mx-auto mb-1" />
               <div className="font-bold text-gray-900 text-xs">{teacher.classes}</div>
               <div className="text-gray-400 text-[10px]">Classes</div>
             </div>
             <div className="bg-gray-50 rounded-xl p-3 text-center">
-              <Award className="w-4 h-4 text-orange-500 mx-auto mb-1" />
-              <div className="font-bold text-green-600 text-[10px]">{teacher.achievement}</div>
+              <Award className="w-4 h-4 text-red-500 mx-auto mb-1" />
+              <div className="font-bold text-slate-600 text-[10px]">{teacher.achievement}</div>
             </div>
           </div>
 
           <div className="flex items-center justify-between">
-            <span className="text-xs px-3 py-1.5 bg-indigo-50 text-indigo-700 rounded-full font-semibold">
+            <span className="text-xs px-3 py-1.5 bg-red-50 text-red-700 rounded-full font-semibold">
               {teacher.stream}
             </span>
             <button
               onClick={() => setExpanded((o) => !o)}
-              className="flex items-center gap-1 text-sm text-orange-500 font-semibold hover:text-orange-600 transition-colors"
+              className="flex items-center gap-1 text-sm text-red-600 font-semibold hover:text-red-700 transition-colors"
             >
               {expanded ? "Show Less" : "View Profile"}
               <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -228,7 +228,7 @@ function FacultyCard({ teacher, index }: { teacher: (typeof allFaculty)[0]; inde
               <ul className="space-y-1.5">
                 {teacher.topics.slice(0, 4).map((t) => (
                   <li key={t} className="flex items-center gap-2 text-xs text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
                     {t}
                   </li>
                 ))}
@@ -237,10 +237,10 @@ function FacultyCard({ teacher, index }: { teacher: (typeof allFaculty)[0]; inde
           </div>
 
           <div className="mt-5 flex flex-wrap gap-3 pt-4 border-t border-gray-200">
-            <a href={`tel:${teacher.phone}`} className="flex items-center gap-2 text-xs text-gray-600 hover:text-orange-500 transition-colors font-medium">
+            <a href={`tel:${teacher.phone}`} className="flex items-center gap-2 text-xs text-gray-600 hover:text-red-600 transition-colors font-medium">
               <Phone className="w-4 h-4" /> {teacher.phone}
             </a>
-            <a href={`mailto:${teacher.contact}`} className="flex items-center gap-2 text-xs text-gray-600 hover:text-blue-500 transition-colors font-medium">
+            <a href={`mailto:${teacher.contact}`} className="flex items-center gap-2 text-xs text-gray-600 hover:text-red-600 transition-colors font-medium">
               <Mail className="w-4 h-4" /> {teacher.contact}
             </a>
           </div>
@@ -261,7 +261,7 @@ export function FacultyPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <div className="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-900 overflow-hidden">
+      <div className="relative pt-32 pb-20 bg-gradient-to-br from-red-900 via-red-800 to-red-950 overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 70% 50%, white 0%, transparent 60%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white">
           <motion.div
@@ -308,7 +308,7 @@ export function FacultyPage() {
               key={s}
               onClick={() => setFilter(s)}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                filter === s ? "bg-indigo-600 text-white shadow-md" : "bg-white border border-gray-200 text-gray-600 hover:border-indigo-300"
+                filter === s ? "bg-red-700 text-white shadow-md" : "bg-white border border-gray-200 text-gray-600 hover:border-red-300"
               }`}
             >
               {s}
@@ -328,11 +328,11 @@ export function FacultyPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center bg-gradient-to-br from-indigo-600 to-blue-700 rounded-3xl p-10 text-white"
+          className="mt-16 text-center bg-gradient-to-br from-red-700 to-red-600 rounded-3xl p-10 text-white"
         >
           <h3 className="font-black text-3xl mb-3">Want to Join Our Faculty?</h3>
           <p className="text-white/75 mb-6 max-w-lg mx-auto">We're always looking for passionate educators. If you have expertise and a love for teaching, we'd love to hear from you.</p>
-          <a href="mailto:careers@aarambhinstitute.in" className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-indigo-700 font-black rounded-xl shadow-lg hover:shadow-white/20 transition-shadow">
+          <a href="mailto:careers@aarambhinstitute.in" className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-red-700 font-black rounded-xl shadow-lg hover:shadow-white/20 transition-shadow">
             <Mail className="w-5 h-5" /> Send Your CV
           </a>
         </motion.div>

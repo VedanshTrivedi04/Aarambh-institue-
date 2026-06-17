@@ -163,8 +163,8 @@ export function AboutSection() {
               whileHover={{ scale: 1.03, x: 4 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white"
-              style={{ background: "linear-gradient(135deg, #05101F, #1a2d4d)" }}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white shadow-lg shadow-red-700/20"
+              style={{ background: "linear-gradient(135deg, #b91c1c, #991b1b)" }}
             >
               Book a Free Counselling Session <ArrowUpRight className="w-4 h-4" />
             </motion.button>
@@ -188,7 +188,7 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                whileHover={{ backgroundColor: "#05101F", transition: { duration: 0.2 } }}
+                whileHover={{ backgroundColor: "#b91c1c", transition: { duration: 0.2 } }}
                 className="group relative p-8 border-r border-gray-100 last:border-r-0 cursor-default overflow-hidden"
               >
                 {/* Number watermark */}

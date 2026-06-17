@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavigate, useLocation, Link } from "react-router";
-import { Menu, X, GraduationCap, Phone, LogIn } from "lucide-react";
+import { Menu, X, Phone, LogIn, PhoneCall } from "lucide-react";
 
 const navLinks = [
   { label: "Home", type: "anchor", href: "#home", route: "/" },
@@ -18,6 +18,7 @@ export function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const [showLogo, setShowLogo] = useState(() => sessionStorage.getItem("aarambh_splash_shown") === "true");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -25,9 +26,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Reset scroll state on dark-bg pages
-  const isDarkPage = !isHome;
-  const alwaysDark = isDarkPage || scrolled;
+  useEffect(() => {
+    if (showLogo) return;
+    const handleTransition = () => setShowLogo(true);
+    window.addEventListener("splash_transition_start", handleTransition);
+    return () => window.removeEventListener("splash_transition_start", handleTransition);
+  }, [showLogo]);
+
+  const isDarkPage = false; 
+  const alwaysDark = false; 
 
   const handleNavClick = (link: (typeof navLinks)[0]) => {
     setIsOpen(false);
@@ -36,7 +43,6 @@ export function Navbar() {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
-    // anchor link
     if (isHome) {
       document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
     } else {
@@ -57,30 +63,20 @@ export function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        alwaysDark
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        scrolled ? "bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg">
-                <GraduationCap className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <div className={`font-bold text-xl tracking-tight transition-colors ${alwaysDark ? "text-gray-900" : "text-white"}`}>
-                  Aarambh Institute
-                </div>
-                <div className={`text-xs transition-colors ${alwaysDark ? "text-orange-500" : "text-orange-300"}`}>
-                  Excellence in Education
-                </div>
-              </div>
-            </motion.div>
+          <Link to="/" className="flex items-center gap-3 group shrink-0">
+            {!showLogo ? (
+              <div className="w-[50px] h-[50px] opacity-0" />
+            ) : (
+              <img src="/logo.png" alt="Aarambh Institute" className="h-[50px] object-contain drop-shadow-sm" />
+            )}
           </Link>
 
           {/* Desktop Links */}
@@ -89,13 +85,15 @@ export function Navbar() {
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link)}
-                className={`relative text-sm font-medium transition-colors group ${
-                  alwaysDark ? "text-gray-700 hover:text-orange-500" : "text-white/90 hover:text-white"
-                } ${isActive(link) ? "text-orange-500" : ""}`}
+                className={`relative text-sm transition-colors group ${
+                  isActive(link)
+                    ? (scrolled ? "text-red-700 font-bold" : "text-white font-bold")
+                    : (scrolled ? "text-slate-700 hover:text-red-700 font-medium" : "text-gray-200 hover:text-white font-medium")
+                }`}
               >
                 {link.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-orange-500 transition-all ${
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-red-700 transition-all ${
                     isActive(link) ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                 />
@@ -104,41 +102,29 @@ export function Navbar() {
           </div>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="tel:+919876543210"
-              className={`flex items-center gap-2 text-sm font-medium transition-colors ${alwaysDark ? "text-gray-700" : "text-white/90"}`}
-            >
-              <Phone className="w-4 h-4" />
-              +91 98765 43210
+          <div className="hidden lg:flex items-center gap-6 shrink-0">
+            <a href="tel:+919876543210" className={`flex items-center gap-2 text-sm font-medium transition-colors ${scrolled ? 'text-slate-700 hover:text-red-700' : 'text-gray-200 hover:text-white'}`}>
+              <PhoneCall className="w-4 h-4" />
+              <span>+91 98765 43210</span>
             </a>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate("/login")}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                alwaysDark
-                  ? "bg-white border-2 border-orange-500 text-orange-500 hover:bg-orange-50"
-                  : "bg-white/10 border-2 border-white/20 text-white hover:bg-white/20"
-              }`}
+            <Link
+              to="/login"
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all border-2 ${scrolled ? 'border-slate-200 text-slate-700 hover:border-red-700 hover:text-red-700' : 'border-white/30 text-white hover:bg-white/10'}`}
             >
-              <LogIn className="w-4 h-4" />
               Login
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            </Link>
+            <button
               onClick={() => handleNavClick(navLinks[navLinks.length - 1])}
-              className="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-orange-500/30 transition-shadow"
+              className="px-5 py-2.5 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-red-700/30 transition-shadow"
             >
               Enroll Now
-            </motion.button>
+            </button>
           </div>
 
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden transition-colors ${alwaysDark ? "text-gray-800" : "text-white"}`}
+            className={`md:hidden transition-colors ${scrolled ? 'text-slate-800' : 'text-white'}`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -161,8 +147,8 @@ export function Navbar() {
                   onClick={() => handleNavClick(link)}
                   className={`text-left py-2.5 px-3 font-medium rounded-lg transition-colors text-sm ${
                     isActive(link)
-                      ? "bg-orange-50 text-orange-600"
-                      : "text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                      ? "bg-red-50 text-red-600"
+                      : "text-gray-700 hover:bg-red-50 hover:text-red-600"
                   }`}
                 >
                   {link.label}
@@ -173,14 +159,17 @@ export function Navbar() {
                   setIsOpen(false);
                   navigate("/login");
                 }}
-                className="mt-2 py-3 bg-white border-2 border-orange-500 text-orange-600 rounded-xl font-semibold flex items-center justify-center gap-2"
+                className="mt-2 py-3 bg-white border-2 border-red-600 text-red-600 rounded-xl font-semibold flex items-center justify-center gap-2"
               >
                 <LogIn className="w-4 h-4" />
                 Login
               </button>
               <button
-                onClick={() => handleNavClick(navLinks[navLinks.length - 1])}
-                className="py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-semibold"
+                onClick={() => {
+                  setIsOpen(false);
+                  handleNavClick(navLinks[navLinks.length - 1]);
+                }}
+                className="py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-xl font-semibold"
               >
                 Enroll Now
               </button>

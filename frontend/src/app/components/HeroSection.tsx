@@ -20,9 +20,9 @@ const floatingTags = [
 function Particle({ x, y, size, dur, delay }: { x: number; y: number; size: number; dur: number; delay: number }) {
   return (
     <motion.div
-      className="absolute rounded-full bg-white/20"
+      className="absolute rounded-full bg-white/50"
       style={{ left: `${x}%`, top: `${y}%`, width: size, height: size }}
-      animate={{ y: [0, -30, 0], opacity: [0.15, 0.5, 0.15] }}
+      animate={{ y: [0, -30, 0], opacity: [0.3, 0.8, 0.3] }}
       transition={{ duration: dur, repeat: Infinity, delay, ease: "easeInOut" }}
     />
   );
@@ -55,9 +55,9 @@ function Scene3D() {
         <motion.div
           animate={{ scale: [1, 1.08, 1] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(255,92,0,0.3) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%)",
             filter: "blur(20px)",
             transform: "translateX(-50%) translateY(-50%) translateZ(20px)",
           }}
@@ -87,16 +87,16 @@ function Scene3D() {
                 top: pos.y,
                 transform: `translateZ(${pos.z}px) rotate(${pos.rot}deg)`,
               }}
-              className="w-44 backdrop-blur-xl rounded-2xl border border-white/15 overflow-hidden shadow-2xl"
+              className="w-44 backdrop-blur-2xl rounded-2xl border border-white/40 overflow-hidden shadow-xl bg-white/40"
               whileHover={{ scale: 1.06, z: 100 }}
             >
-              <div style={{ background: `linear-gradient(135deg, ${s.color}22, ${s.color}08)`, borderTop: `3px solid ${s.color}` }}>
+              <div style={{ background: `linear-gradient(135deg, ${s.color}15, ${s.color}05)`, borderTop: `3px solid ${s.color}` }}>
                 <div className="p-4">
-                  <div className="font-black text-2xl text-white mb-0.5" style={{ textShadow: `0 0 20px ${s.color}88` }}>
+                  <div className="font-black text-2xl text-slate-800 mb-0.5" style={{ textShadow: `0 2px 10px rgba(0,0,0,0.05)` }}>
                     {s.value}
                   </div>
-                  <div className="text-white/80 text-xs font-bold uppercase tracking-wider">{s.label}</div>
-                  <div className="text-white/40 text-[10px] mt-1">{s.sub}</div>
+                  <div className="text-slate-600 text-xs font-bold uppercase tracking-wider">{s.label}</div>
+                  <div className="text-slate-500 text-[10px] mt-1">{s.sub}</div>
                 </div>
               </div>
             </motion.div>
@@ -108,14 +108,14 @@ function Scene3D() {
           animate={{ y: [0, -12, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           style={{ position: "absolute", right: "6%", top: "20%", transform: "translateZ(60px) rotate(4deg)" }}
-          className="backdrop-blur-xl rounded-2xl border border-white/15 p-4 w-36 shadow-2xl"
+          className="backdrop-blur-2xl bg-white/40 rounded-2xl border border-white/40 p-4 w-36 shadow-xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
-          <div className="text-white/50 text-[10px] font-bold uppercase tracking-widest mb-2">Boards</div>
+          <div className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-2">Boards</div>
           {boards.map((b) => (
-            <div key={b} className="text-white font-semibold text-sm py-0.5 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
+            <div key={b} className="text-slate-800 font-semibold text-sm py-0.5 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
               {b}
             </div>
           ))}
@@ -126,15 +126,15 @@ function Scene3D() {
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           style={{ position: "absolute", right: "8%", bottom: "14%", transform: "translateZ(30px) rotate(-3deg)" }}
-          className="backdrop-blur-xl rounded-2xl border border-white/15 p-4 shadow-2xl"
+          className="backdrop-blur-2xl bg-white/40 rounded-2xl border border-white/40 p-4 shadow-xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-sm font-black">★</div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center text-sm font-black text-white shadow-md">★</div>
             <div>
-              <div className="text-white font-bold text-sm">5.0 Rating</div>
-              <div className="text-white/40 text-[10px]">234 reviews</div>
+              <div className="text-slate-800 font-bold text-sm">5.0 Rating</div>
+              <div className="text-slate-500 text-[10px]">234 reviews</div>
             </div>
           </div>
         </motion.div>
@@ -144,23 +144,23 @@ function Scene3D() {
           animate={{ rotateZ: [0, 360] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           style={{ position: "absolute", right: "30%", top: "15%", transform: "translateZ(-20px)" }}
-          className="w-16 h-16 border-2 border-white/10 rounded-lg opacity-40"
+          className="w-16 h-16 border-2 border-white/60 rounded-lg opacity-40"
         />
         <motion.div
           animate={{ rotateZ: [0, -360] }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           style={{ position: "absolute", left: "38%", bottom: "20%", transform: "translateZ(-40px)" }}
-          className="w-10 h-10 border-2 border-orange-500/30 rounded-full opacity-60"
+          className="w-10 h-10 border-2 border-yellow-400/50 rounded-full opacity-60"
         />
 
         {/* Connection lines (fake wires between cards) */}
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none opacity-10"
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-20"
           style={{ transform: "translateZ(0px)" }}
         >
-          <line x1="30%" y1="18%" x2="60%" y2="45%" stroke="white" strokeWidth="1" strokeDasharray="4 4" />
-          <line x1="60%" y1="45%" x2="30%" y2="72%" stroke="white" strokeWidth="1" strokeDasharray="4 4" />
-          <line x1="30%" y1="18%" x2="80%" y2="30%" stroke="white" strokeWidth="1" strokeDasharray="4 4" />
+          <line x1="30%" y1="18%" x2="60%" y2="45%" stroke="#0f172a" strokeWidth="1" strokeDasharray="4 4" />
+          <line x1="60%" y1="45%" x2="30%" y2="72%" stroke="#0f172a" strokeWidth="1" strokeDasharray="4 4" />
+          <line x1="30%" y1="18%" x2="80%" y2="30%" stroke="#0f172a" strokeWidth="1" strokeDasharray="4 4" />
         </svg>
       </motion.div>
     </div>
@@ -193,8 +193,8 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #05101F 0%, #0A1A35 50%, #0D0A1E 100%)" }}
+      className="relative min-h-screen flex flex-col overflow-hidden bg-sky-50"
+      style={{ background: "linear-gradient(to bottom, #dbeafe 0%, #bae6fd 50%, #f0f9ff 100%)" }}
     >
       {/* Animated particle field */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -207,7 +207,7 @@ export function HeroSection() {
         style={{ y: parallaxY }}
       >
         <div
-          className="w-full h-full opacity-[0.04]"
+          className="w-full h-full opacity-20"
           style={{
             backgroundImage: `
               linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
@@ -221,16 +221,16 @@ export function HeroSection() {
       </motion.div>
 
       {/* Radial glow centers */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #3B5BDB, transparent 70%)", filter: "blur(60px)" }} />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-10 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #FF5C00, transparent 70%)", filter: "blur(60px)" }} />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-40 pointer-events-none"
+        style={{ background: "radial-gradient(circle, #ffffff, transparent 70%)", filter: "blur(40px)" }} />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-40 pointer-events-none"
+        style={{ background: "radial-gradient(circle, #fcd34d, transparent 70%)", filter: "blur(60px)" }} />
 
       {/* Floating board tags (decorative) */}
       {floatingTags.map((tag) => (
         <motion.div
           key={tag.text}
-          className="absolute hidden xl:block text-xs font-bold text-white/20 border border-white/10 px-3 py-1 rounded-full backdrop-blur-sm"
+          className="absolute hidden xl:block text-xs font-bold text-slate-500 border border-white/50 bg-white/30 px-3 py-1 rounded-full backdrop-blur-md shadow-sm"
           style={{ left: tag.x, top: tag.y, rotate: tag.rot }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -255,12 +255,12 @@ export function HeroSection() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md"
+                className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/50 bg-white/40 shadow-sm backdrop-blur-md"
               >
-                <MapPin className="w-3.5 h-3.5 text-orange-400" />
-                <span className="text-white/60 text-xs font-medium">Indore, Madhya Pradesh</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-green-400 text-xs font-semibold">Admissions Open</span>
+                <MapPin className="w-3.5 h-3.5 text-red-600" />
+                <span className="text-slate-600 text-xs font-semibold">Indore, Madhya Pradesh</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-green-600 text-xs font-bold">Admissions Open</span>
               </motion.div>
 
               {/* Main headline */}
@@ -270,21 +270,21 @@ export function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
                 <h1 className="leading-[0.95] mb-4" style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 900 }}>
-                  <span className="block text-white">Aarambh</span>
+                  <span className="block text-slate-900 tracking-tight">Aarambh</span>
                   <span
                     className="block"
                     style={{
-                      background: "linear-gradient(90deg, #FF5C00, #FF9A3C, #FFD166)",
+                      background: "linear-gradient(90deg, #b91c1c, #dc2626, #ef4444)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
-                      filter: "drop-shadow(0 0 30px rgba(255,92,0,0.4))",
+                      filter: "drop-shadow(0 4px 6px rgba(185, 28, 28, 0.15))",
                     }}
                   >
                     Institute
                   </span>
                 </h1>
-                <p className="text-white/50 text-lg mb-2" style={{ fontStyle: "italic", letterSpacing: "0.02em" }}>
+                <p className="text-slate-600 text-lg mb-2 font-medium" style={{ fontStyle: "italic", letterSpacing: "0.02em" }}>
                   आरंभ करें सफलता की ओर — Where Every Journey Begins
                 </p>
               </motion.div>
@@ -296,9 +296,9 @@ export function HeroSection() {
                 transition={{ delay: 0.4 }}
                 className="flex items-center gap-3 mb-8 mt-5"
               >
-                <span className="text-white/30 text-sm">Excellence for</span>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-white/5 border border-white/10">
-                  <span className="text-white/50 text-xs">Class 10 · 11 · 12 ·</span>
+                <span className="text-slate-500 font-medium text-sm">Excellence for</span>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-white/50 shadow-sm border border-white/50">
+                  <span className="text-slate-600 font-medium text-xs">Class 10 · 11 · 12 ·</span>
                   <div className="h-5 overflow-hidden w-20">
                     <motion.div
                       key={boardIdx}
@@ -306,7 +306,7 @@ export function HeroSection() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -20, opacity: 0 }}
                       transition={{ duration: 0.35, ease: "easeOut" }}
-                      className="text-orange-400 font-bold text-sm"
+                      className="text-red-600 font-bold text-sm"
                     >
                       {boards[boardIdx]}
                     </motion.div>
@@ -324,21 +324,21 @@ export function HeroSection() {
                 <motion.button
                   whileHover={{
                     scale: 1.04,
-                    boxShadow: "0 0 0 4px rgba(255,92,0,0.2), 0 20px 50px rgba(255,92,0,0.35)",
+                    boxShadow: "0 0 0 4px rgba(185, 28, 28, 0.2), 0 20px 40px rgba(185, 28, 28, 0.25)",
                   }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                   className="flex items-center gap-2 px-7 py-4 rounded-xl font-bold text-white text-base"
-                  style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)", boxShadow: "0 8px 30px rgba(255,92,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15)" }}
+                  style={{ background: "linear-gradient(135deg, #dc2626, #b91c1c)", boxShadow: "0 8px 30px rgba(185, 28, 28, 0.3), inset 0 1px 0 rgba(255,255,255,0.15)" }}
                 >
                   Enroll Free Demo <ArrowRight className="w-4 h-4" />
                 </motion.button>
 
                 <motion.button
-                  whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.08)" }}
+                  whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.6)" }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" })}
-                  className="px-7 py-4 rounded-xl font-semibold text-white/70 text-base border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-colors"
+                  className="px-7 py-4 rounded-xl font-bold text-slate-700 text-base border border-slate-300 bg-white/40 shadow-sm backdrop-blur-sm transition-colors"
                 >
                   Explore Courses
                 </motion.button>
@@ -355,15 +355,15 @@ export function HeroSection() {
                   {["A", "R", "P", "V", "K"].map((l, i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 rounded-full border-2 border-[#05101F] flex items-center justify-center text-white text-xs font-bold"
-                      style={{ background: ["#FF5C00","#3B5BDB","#2F9E44","#7950F2","#E64980"][i] }}
+                      className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold shadow-sm"
+                      style={{ background: ["#dc2626","#2563eb","#16a34a","#7c3aed","#db2777"][i] }}
                     >
                       {l}
                     </div>
                   ))}
                 </div>
-                <div className="text-white/40 text-sm">
-                  <span className="text-white/70 font-semibold">1000+</span> students enrolled this year
+                <div className="text-slate-600 text-sm font-medium">
+                  <span className="text-slate-900 font-bold">1000+</span> students enrolled this year
                 </div>
               </motion.div>
             </div>
@@ -382,9 +382,9 @@ export function HeroSection() {
 
       {/* Scroll cue line */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-        <span className="text-white/20 text-[10px] uppercase tracking-[0.2em] font-medium">Scroll</span>
+        <span className="text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold">Scroll</span>
         <motion.div
-          className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent"
+          className="w-px h-10 bg-gradient-to-b from-slate-400 to-transparent"
           animate={{ scaleY: [1, 0.3, 1], opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity }}
         />

@@ -8,7 +8,7 @@ const classes = ["Class 10th", "Class 11th", "Class 12th"];
 const boardsList = ["MP Board", "CBSE", "ICSE"];
 const streams = ["Science", "Commerce", "Arts", "All Subjects"];
 
-const inputCls = "w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF5C00]/40 focus:border-[#FF5C00] bg-gray-50/50 text-sm transition-all placeholder:text-gray-400";
+const inputCls = "w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#b91c1c]/40 focus:border-[#b91c1c] bg-gray-50/50 text-sm transition-all placeholder:text-gray-400";
 const selectCls = `${inputCls} cursor-pointer`;
 
 export function ContactSection() {
@@ -46,7 +46,7 @@ export function ContactSection() {
 
   const contactInfo = [
     { icon: Phone, label: "Phone", value: "88397-14081", sub: "79097-14081", color: "#3B5BDB" },
-    { icon: Mail, label: "Email", value: "aarambhinstitute09@gmail.com", sub: "Replies within 24hrs", color: "#FF5C00" },
+    { icon: Mail, label: "Email", value: "aarambhinstitute09@gmail.com", sub: "Replies within 24hrs", color: "#b91c1c" },
     { icon: MapPin, label: "Address", value: "8 Shantinath Puri, Hawa Bangla, Near Sai Mandir", sub: "Indore, Madhya Pradesh", color: "#2F9E44" },
     { icon: Clock, label: "Hours", value: "10 AM – 8 PM", sub: "Monday - Saturday", color: "#7950F2" },
   ];
@@ -165,10 +165,10 @@ export function ContactSection() {
                   <motion.button
                     type="submit"
                     disabled={loading}
-                    whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(255,92,0,0.3)" }}
+                    whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(185,28,28,0.3)" }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full py-4 rounded-xl font-bold text-white text-base flex items-center justify-center gap-2 disabled:opacity-70 transition-shadow"
-                    style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)", boxShadow: "0 8px 20px rgba(255,92,0,0.2)" }}
+                    style={{ background: "linear-gradient(135deg, #b91c1c, #991b1b)", boxShadow: "0 8px 20px rgba(185,28,28,0.2)" }}
                   >
                     {loading ? (
                       <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

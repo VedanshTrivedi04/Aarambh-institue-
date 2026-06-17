@@ -99,7 +99,7 @@ function FacultyCard({ teacher, index }: { teacher: TeacherItem; index: number }
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            background: `linear-gradient(135deg, ${teacher.accent}22 0%, #05101F 100%)`,
+            background: `linear-gradient(135deg, ${teacher.accent}15 0%, #ffffff 100%)`,
             border: `1px solid ${teacher.accent}33`,
           }}
         >
@@ -107,23 +107,23 @@ function FacultyCard({ teacher, index }: { teacher: TeacherItem; index: number }
             <div className="text-[10px] font-bold uppercase tracking-[0.15em] mb-2" style={{ color: teacher.accent }}>
               {teacher.exp} Experience
             </div>
-            <h3 className="font-black text-white text-xl mb-1">{teacher.name}</h3>
-            <p className="text-white/40 text-sm mb-5">{teacher.classes}</p>
+            <h3 className="font-black text-slate-900 text-xl mb-1">{teacher.name}</h3>
+            <p className="text-slate-600 text-sm mb-5">{teacher.classes}</p>
 
-            <div className="p-4 rounded-2xl mb-4" style={{ backgroundColor: `${teacher.accent}12`, border: `1px solid ${teacher.accent}25` }}>
-              <div className="text-[10px] uppercase tracking-wider text-white/30 font-bold mb-1">Key Achievement</div>
-              <div className="text-white/80 text-sm font-semibold">{teacher.achievement}</div>
+            <div className="p-4 rounded-2xl mb-4 bg-white shadow-sm border border-slate-100">
+              <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Key Achievement</div>
+              <div className="text-slate-800 text-sm font-semibold">{teacher.achievement}</div>
             </div>
 
             <div className="flex flex-wrap gap-1.5">
               {teacher.boards.map((b) => (
-                <span key={b} className="text-xs px-2.5 py-1 rounded-lg text-white/50 border border-white/10 font-medium">{b}</span>
+                <span key={b} className="text-xs px-2.5 py-1 rounded-lg text-slate-600 bg-slate-50 border border-slate-200 font-medium">{b}</span>
               ))}
             </div>
           </div>
 
           <div>
-            <div className="text-xs text-white/20 mb-3 text-center">Click to flip back</div>
+            <div className="text-xs text-slate-400 mb-3 text-center">Click to flip back</div>
             <button
               onClick={(e) => { e.stopPropagation(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
               className="w-full py-3 rounded-xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-opacity hover:opacity-80"

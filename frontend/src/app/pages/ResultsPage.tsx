@@ -75,7 +75,7 @@ function ResultCard({ result, onPhotoClick, onUpload, color }: {
             </div>
             <button
               onClick={() => fileRef.current?.click()}
-              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-indigo-500 transition-colors border border-dashed border-gray-300 hover:border-indigo-400 px-3 py-1.5 rounded-full"
+              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-red-600 transition-colors border border-dashed border-gray-300 hover:border-red-400 px-3 py-1.5 rounded-full"
             >
               <Camera className="w-3.5 h-3.5" /> Add Photo
             </button>
@@ -84,7 +84,7 @@ function ResultCard({ result, onPhotoClick, onUpload, color }: {
         )}
         {/* Rank Badge */}
         <div className="absolute bottom-3 left-3">
-          <span className="text-xs px-2.5 py-1 bg-orange-500 text-white rounded-full font-bold shadow-md">{result.rank}</span>
+          <span className="text-xs px-2.5 py-1 bg-red-600 text-white rounded-full font-bold shadow-md">{result.rank}</span>
         </div>
       </div>
 
@@ -207,7 +207,7 @@ export function ResultsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <div className="relative pt-32 pb-16 bg-gradient-to-br from-yellow-600 via-orange-600 to-red-700 overflow-hidden">
+      <div className="relative pt-32 pb-16 bg-gradient-to-br from-red-900 via-red-800 to-red-950 overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 60%, white 0%, transparent 50%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-6xl font-black mb-4">
@@ -241,7 +241,7 @@ export function ResultsPage() {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => setShowUploadForm(true)}
-            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-xl shadow-lg"
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-700 to-red-600 text-white font-bold rounded-xl shadow-lg"
           >
             <Upload className="w-4 h-4" /> Add Student Result
           </motion.button>
@@ -255,17 +255,17 @@ export function ResultsPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name or subject..."
-              className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-50"
+              className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-50"
             />
           </div>
           <div className="flex items-center gap-2 flex-wrap">
             <Filter className="w-4 h-4 text-gray-400" />
             {years.map((y) => (
-              <button key={y} onClick={() => setFilterYear(y)} className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${filterYear === y ? "bg-orange-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>{y}</button>
+              <button key={y} onClick={() => setFilterYear(y)} className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${filterYear === y ? "bg-red-700 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>{y}</button>
             ))}
             <div className="w-px h-5 bg-gray-200" />
             {boards.map((b) => (
-              <button key={b} onClick={() => setFilterBoard(b)} className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${filterBoard === b ? "bg-indigo-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>{b}</button>
+              <button key={b} onClick={() => setFilterBoard(b)} className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${filterBoard === b ? "bg-red-700 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>{b}</button>
             ))}
           </div>
         </div>
@@ -276,7 +276,7 @@ export function ResultsPage() {
         {/* Grid */}
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <div className="w-12 h-12 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin" />
+            <div className="w-12 h-12 border-4 border-red-500/20 border-t-red-500 rounded-full animate-spin" />
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -345,7 +345,7 @@ export function ResultsPage() {
                     onDrop={handleDrop}
                     onDragOver={(e) => e.preventDefault()}
                     onClick={() => fileInputRef.current?.click()}
-                    className="relative h-44 rounded-2xl border-2 border-dashed border-gray-200 hover:border-orange-400 transition-colors cursor-pointer bg-gray-50 overflow-hidden mb-6 flex items-center justify-center"
+                    className="relative h-44 rounded-2xl border-2 border-dashed border-gray-200 hover:border-red-400 transition-colors cursor-pointer bg-gray-50 overflow-hidden mb-6 flex items-center justify-center"
                   >
                     {newPhoto ? (
                       <>
@@ -370,27 +370,27 @@ export function ResultsPage() {
                       value={newStudent.name}
                       onChange={(e) => setNewStudent((s) => ({ ...s, name: e.target.value }))}
                       placeholder="Student Full Name *"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-50 text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-50 text-sm"
                     />
                     <div className="grid grid-cols-2 gap-3">
                       <input
                         value={newStudent.score}
                         onChange={(e) => setNewStudent((s) => ({ ...s, score: e.target.value }))}
                         placeholder="Score e.g. 95.2%"
-                        className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-50 text-sm"
+                        className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-50 text-sm"
                       />
                       <input
                         value={newStudent.rank}
                         onChange={(e) => setNewStudent((s) => ({ ...s, rank: e.target.value }))}
                         placeholder="Rank e.g. District 1st"
-                        className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-50 text-sm"
+                        className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-50 text-sm"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-3">
-                      <select value={newStudent.board} onChange={(e) => setNewStudent((s) => ({ ...s, board: e.target.value }))} className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-50 text-sm">
+                      <select value={newStudent.board} onChange={(e) => setNewStudent((s) => ({ ...s, board: e.target.value }))} className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-50 text-sm">
                         {["MP Board", "CBSE", "ICSE"].map((b) => <option key={b}>{b}</option>)}
                       </select>
-                      <select value={newStudent.classYear} onChange={(e) => setNewStudent((s) => ({ ...s, classYear: e.target.value }))} className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-50 text-sm">
+                      <select value={newStudent.classYear} onChange={(e) => setNewStudent((s) => ({ ...s, classYear: e.target.value }))} className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-50 text-sm">
                         {["Class 10th", "Class 11th", "Class 12th"].map((c) => <option key={c}>{c}</option>)}
                       </select>
                     </div>
@@ -399,9 +399,9 @@ export function ResultsPage() {
                         value={newStudent.subject}
                         onChange={(e) => setNewStudent((s) => ({ ...s, subject: e.target.value }))}
                         placeholder="Stream/Subject"
-                        className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-50 text-sm"
+                        className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-50 text-sm"
                       />
-                      <select value={newStudent.year} onChange={(e) => setNewStudent((s) => ({ ...s, year: e.target.value }))} className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-50 text-sm">
+                      <select value={newStudent.year} onChange={(e) => setNewStudent((s) => ({ ...s, year: e.target.value }))} className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-50 text-sm">
                         {["2025", "2024", "2023", "2022"].map((y) => <option key={y}>{y}</option>)}
                       </select>
                     </div>
@@ -412,7 +412,7 @@ export function ResultsPage() {
                     whileTap={{ scale: 0.98 }}
                     onClick={handleAddResult}
                     disabled={!newStudent.name}
-                    className="w-full mt-5 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-xl shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="w-full mt-5 py-4 bg-gradient-to-r from-red-700 to-red-600 text-white font-bold rounded-xl shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     <Trophy className="w-5 h-5" /> Add to Results Gallery
                   </motion.button>
@@ -452,7 +452,7 @@ export function ResultsPage() {
                   </div>
                   <div className="text-right">
                     <div className="font-black text-green-400 text-2xl">{selected.score}</div>
-                    <div className="text-orange-400 font-bold text-sm">{selected.rank}</div>
+                    <div className="text-red-400 font-bold text-sm">{selected.rank}</div>
                   </div>
                 </div>
               </div>

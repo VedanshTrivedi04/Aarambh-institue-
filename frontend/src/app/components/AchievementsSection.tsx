@@ -52,19 +52,19 @@ function StatBlock({ s, enabled }: { s: (typeof stats)[0]; enabled: boolean }) {
   return (
     <motion.div
       whileHover={{ y: -6, scale: 1.03 }}
-      className="relative p-6 rounded-2xl border border-white/[0.06] overflow-hidden"
-      style={{ background: `linear-gradient(135deg, ${s.color}12, rgba(255,255,255,0.02))` }}
+      className="relative p-6 rounded-2xl border border-slate-100 shadow-sm overflow-hidden"
+      style={{ background: `linear-gradient(135deg, ${s.color}08, #ffffff)` }}
     >
       <div className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"
         style={{ background: `radial-gradient(circle at center, ${s.glow} 0%, transparent 70%)` }} />
       <div className="relative z-10">
-        <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center" style={{ backgroundColor: `${s.color}20`, border: `1px solid ${s.color}40` }}>
+        <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center bg-white shadow-sm" style={{ border: `1px solid ${s.color}40` }}>
           <Icon className="w-5 h-5" style={{ color: s.color }} />
         </div>
-        <div className="font-black text-4xl text-white mb-1" style={{ textShadow: `0 0 30px ${s.glow}` }}>
+        <div className="font-black text-4xl text-slate-800 mb-1">
           {count}{s.suffix}
         </div>
-        <div className="text-white/40 text-sm font-medium">{s.label}</div>
+        <div className="text-slate-500 text-sm font-medium">{s.label}</div>
       </div>
     </motion.div>
   );
@@ -91,13 +91,12 @@ export function AchievementsSection({ showViewAll, onViewAll }: { showViewAll?: 
   const loading = false;
 
   return (
-    <section id="results" className="py-28 bg-[#05101F] overflow-hidden">
+    <section id="results" className="py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionTitle
           label="Our Results"
           title={`Numbers That\nSpeak Truth`}
           subtitle="Every year our students prove that the right guidance changes everything."
-          light
         />
 
         {/* Stats grid */}
@@ -120,11 +119,11 @@ export function AchievementsSection({ showViewAll, onViewAll }: { showViewAll?: 
           {/* Toppers list */}
           <div className="lg:col-span-3">
             <div className="flex items-center justify-between mb-5">
-              <h3 className="font-black text-white text-xl flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-yellow-400" /> Recent Toppers
+              <h3 className="font-black text-slate-900 text-xl flex items-center gap-2">
+                <Trophy className="w-5 h-5 text-yellow-500" /> Recent Toppers
               </h3>
               {showViewAll && (
-                <button onClick={onViewAll} className="flex items-center gap-1 text-orange-400 font-semibold text-sm hover:text-orange-300 transition-colors">
+                <button onClick={onViewAll} className="flex items-center gap-1 text-red-700 font-semibold text-sm hover:text-red-800 transition-colors">
                   View All <ArrowRight className="w-4 h-4" />
                 </button>
               )}
@@ -132,10 +131,10 @@ export function AchievementsSection({ showViewAll, onViewAll }: { showViewAll?: 
             
             {loading ? (
               <div className="flex justify-center items-center py-10">
-                <div className="w-8 h-8 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin" />
+                <div className="w-8 h-8 border-4 border-red-700/20 border-t-red-700 rounded-full animate-spin" />
               </div>
             ) : toppers.length === 0 ? (
-              <div className="text-white/40 text-center py-10 border border-white/10 rounded-2xl">
+              <div className="text-slate-400 text-center py-10 border border-slate-100 rounded-2xl">
                 More results coming soon.
               </div>
             ) : (
@@ -147,21 +146,21 @@ export function AchievementsSection({ showViewAll, onViewAll }: { showViewAll?: 
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07 }}
-                    whileHover={{ x: 5, backgroundColor: "rgba(255,255,255,0.05)" }}
-                    className="flex items-center gap-4 p-4 rounded-2xl border border-white/[0.06] transition-colors cursor-default"
+                    whileHover={{ x: 5, backgroundColor: "#f8fafc" }}
+                    className="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 transition-colors cursor-default"
                   >
                     <div
-                      className="w-11 h-11 rounded-xl flex items-center justify-center text-white font-black text-base flex-shrink-0"
-                      style={{ background: `linear-gradient(135deg, ${t.c}, ${t.c}88)` }}
+                      className="w-11 h-11 rounded-xl flex items-center justify-center text-white font-black text-base flex-shrink-0 shadow-sm"
+                      style={{ background: `linear-gradient(135deg, ${t.c}, ${t.c}dd)` }}
                     >
                       {t.letter}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-bold text-white/90 text-sm truncate">{t.name}</div>
-                      <div className="text-white/30 text-xs">{t.board} · {t.yr}</div>
+                      <div className="font-bold text-slate-800 text-sm truncate">{t.name}</div>
+                      <div className="text-slate-500 text-xs">{t.board} · {t.yr}</div>
                     </div>
                     <div className="text-right flex-shrink-0">
-                      <div className="font-black text-green-400 text-base">{t.score}</div>
+                      <div className="font-black text-green-600 text-base">{t.score}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -179,12 +178,12 @@ export function AchievementsSection({ showViewAll, onViewAll }: { showViewAll?: 
               style={{ boxShadow: "0 30px 60px rgba(0,0,0,0.5)" }}
             >
               <img src={IMG_GRAD} alt="Graduate" className="w-full h-64 object-cover" />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(5,16,31,0.9) 0%, transparent 50%)" }} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(15,23,42,0.8) 0%, transparent 60%)" }} />
               <div className="absolute bottom-5 left-5 right-5">
-                <div className="font-black text-white text-3xl mb-1">98%+</div>
-                <div className="text-white/50 text-sm">Students reach their target score</div>
+                <div className="font-black text-white text-3xl mb-1 drop-shadow-md">98%+</div>
+                <div className="text-white/80 text-sm drop-shadow-md">Students reach their target score</div>
               </div>
-              <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-orange-500 text-white text-xs font-black">
+              <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-yellow-400 text-yellow-900 text-xs font-black shadow-md">
                 {new Date().getFullYear()} Batch
               </div>
             </motion.div>
@@ -194,22 +193,21 @@ export function AchievementsSection({ showViewAll, onViewAll }: { showViewAll?: 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="p-6 rounded-2xl border border-white/[0.08]"
-              style={{ background: "linear-gradient(135deg, rgba(59,91,219,0.12), rgba(5,16,31,0.8))" }}
+              className="p-6 rounded-2xl border border-slate-200 bg-slate-50 shadow-sm"
             >
-              <div className="font-bold text-white mb-1">Ready to be the next topper?</div>
-              <p className="text-white/40 text-sm mb-4">Batch starting soon. Seats are filling up fast.</p>
+              <div className="font-bold text-slate-800 mb-1">Ready to be the next topper?</div>
+              <p className="text-slate-500 text-sm mb-4">Batch starting soon. Seats are filling up fast.</p>
               <button
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="w-full py-3 rounded-xl font-bold text-white text-sm"
-                style={{ background: "linear-gradient(135deg, #FF5C00, #FF3A00)", boxShadow: "0 8px 20px rgba(255,92,0,0.25)" }}
+                className="w-full py-3 rounded-xl font-bold text-white text-sm transition-all"
+                style={{ background: "linear-gradient(135deg, #b91c1c, #991b1b)", boxShadow: "0 8px 20px rgba(185, 28, 28, 0.25)" }}
               >
                 Book Free Demo Class
               </button>
               {showViewAll && (
                 <button
                   onClick={onViewAll}
-                  className="w-full mt-2 py-3 rounded-xl font-semibold text-white/40 text-sm border border-white/10 hover:border-white/20 hover:text-white/60 transition-colors"
+                  className="w-full mt-2 py-3 rounded-xl font-semibold text-slate-500 text-sm border border-slate-200 hover:border-slate-300 hover:text-slate-700 transition-colors bg-white shadow-sm"
                 >
                   View All Results & Photos →
                 </button>

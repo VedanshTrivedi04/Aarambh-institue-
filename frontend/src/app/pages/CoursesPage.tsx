@@ -147,7 +147,7 @@ function SubjectAccordion({ subject, delay }: { subject: { name: string; topics:
         className="w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors"
       >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center shadow-sm">
             <Icon className="w-5 h-5 text-white" />
           </div>
           <span className="font-bold text-gray-900">{subject.name}</span>
@@ -194,7 +194,7 @@ export function CoursesPage() {
       <PageHero
         title="Our Courses"
         subtitle="Comprehensive coaching for Class 10th, 11th & 12th — all subjects, all boards, all streams."
-        bg="bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900"
+        bg="bg-gradient-to-br from-red-900 via-red-800 to-red-950"
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -213,8 +213,8 @@ export function CoursesPage() {
               onClick={() => setActiveClass(c)}
               className={`flex-1 py-4 rounded-2xl font-black text-lg transition-all ${
                 activeClass === c
-                  ? "bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-lg"
-                  : "bg-white text-gray-700 border border-gray-200 hover:border-indigo-200"
+                  ? "bg-gradient-to-r from-red-700 to-red-600 text-white shadow-lg"
+                  : "bg-white text-gray-700 border border-gray-200 hover:border-red-200"
               }`}
             >
               Class {c}th
@@ -233,7 +233,7 @@ export function CoursesPage() {
           >
             <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm mb-8">
               <h2 className="font-black text-3xl text-gray-900 mb-2">{cls.title}</h2>
-              <p className="text-orange-500 font-semibold mb-3">{cls.tagline}</p>
+              <p className="text-red-600 font-semibold mb-3">{cls.tagline}</p>
               <p className="text-gray-600 mb-6">{cls.desc}</p>
               <div className="grid grid-cols-3 gap-4">
                 {[
@@ -242,7 +242,7 @@ export function CoursesPage() {
                   { icon: Star, label: "Timings", value: cls.timing },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="bg-gray-50 rounded-2xl p-4 text-center">
-                    <Icon className="w-5 h-5 text-indigo-500 mx-auto mb-2" />
+                    <Icon className="w-5 h-5 text-red-600 mx-auto mb-2" />
                     <div className="text-xs text-gray-400 font-medium mb-0.5">{label}</div>
                     <div className="font-bold text-gray-900 text-sm">{value}</div>
                   </div>
@@ -285,14 +285,14 @@ export function CoursesPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl p-8 text-white text-center"
+              className="mt-10 bg-gradient-to-br from-red-700 to-red-600 rounded-3xl p-8 text-white text-center"
             >
               <h3 className="font-black text-2xl mb-2">Ready to Enroll?</h3>
               <p className="text-white/80 mb-6">Book a free demo class and experience our teaching style before committing.</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={() => { navigate("/"); setTimeout(() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }), 400); }}
-                  className="px-8 py-3.5 bg-white text-orange-600 font-black rounded-xl shadow-lg hover:shadow-white/20 transition-shadow"
+                  className="px-8 py-3.5 bg-white text-red-700 font-black rounded-xl shadow-lg hover:shadow-white/20 transition-shadow"
                 >
                   Book Free Demo Class
                 </button>
