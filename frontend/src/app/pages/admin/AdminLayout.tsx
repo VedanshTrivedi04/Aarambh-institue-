@@ -66,7 +66,7 @@ export function AdminLayout() {
   const initials = (user.first_name?.[0] || '') + (user.last_name?.[0] || '');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-100">
       {/* Sidebar */}
       <aside
         className={`fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 z-50 transform transition-transform duration-300 shadow-lg ${
@@ -76,12 +76,12 @@ export function AdminLayout() {
         {/* Logo */}
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-700 to-red-600 flex items-center justify-center">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div>
               <div className="text-gray-900 font-bold text-lg">Aarambh</div>
-              <div className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-orange-100 text-orange-600 border border-orange-200 inline-block">
+              <div className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-red-50 text-red-600 border border-red-200 inline-block">
                 Admin Panel
               </div>
             </div>
@@ -106,7 +106,7 @@ export function AdminLayout() {
                       onClick={() => setSidebarOpen(false)}
                       className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all ${
                         isActive
-                          ? "bg-orange-100 border-l-2 border-orange-500 text-orange-600"
+                          ? "bg-red-50 border-l-2 border-red-600 text-red-700"
                           : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                       }`}
                     >
@@ -123,7 +123,7 @@ export function AdminLayout() {
         {/* Profile Footer */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold uppercase">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-700 to-red-600 flex items-center justify-center text-white font-bold uppercase">
               {initials || "AD"}
             </div>
             <div className="flex-1 min-w-0">
@@ -183,7 +183,7 @@ export function AdminLayout() {
             </button>
 
             {/* Avatar */}
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-sm uppercase">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-red-700 to-red-600 flex items-center justify-center text-white font-bold text-sm uppercase">
               {initials || "AD"}
             </div>
           </div>

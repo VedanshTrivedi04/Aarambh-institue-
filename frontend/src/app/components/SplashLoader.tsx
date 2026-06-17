@@ -5,12 +5,12 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
   const [phase, setPhase] = useState<"drawing" | "holding" | "fading">("drawing");
 
   useEffect(() => {
-    // Phase 1: Drawing animation plays for 6 seconds
-    const t1 = setTimeout(() => setPhase("holding"), 6000);
+    // Phase 1: Drawing animation plays for 7 seconds
+    const t1 = setTimeout(() => setPhase("holding"), 7000);
     // Phase 2: Hold for 1.5 seconds
-    const t2 = setTimeout(() => setPhase("fading"), 7500);
+    const t2 = setTimeout(() => setPhase("fading"), 8500);
     // Phase 3: Fade out everything, wait 1.5s for blur to lift
-    const t3 = setTimeout(() => onDone(), 9000);
+    const t3 = setTimeout(() => onDone(), 10000);
     
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [onDone]);
@@ -163,7 +163,7 @@ export function SplashLoader({ onDone }: { onDone: () => void }) {
                 className="h-full bg-gradient-to-r from-red-500 to-red-800 rounded-full"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 6.0, delay: 1.0, ease: "linear" }}
+                transition={{ duration: 7.0, delay: 1.0, ease: "linear" }}
                 style={{ boxShadow: "0 0 10px rgba(185,28,28,0.5)" }}
               />
             </motion.div>
